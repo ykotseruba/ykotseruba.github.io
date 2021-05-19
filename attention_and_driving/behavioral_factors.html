@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link href="assets/css/tabulator/4.9/tabulator.min.css" rel="stylesheet">
+		<link href="assets/css/tables.css" rel="stylesheet">
+	</head>
+
+
+	<body>
+
+ <!-- Top navigation -->
+<div class="topnav">
+
+<a href="https://github.com/ykotseruba/attention_and_driving">Back to Github</a>
+<a href="#" class="active">Behavioral</a>
+<a href="practical_scene_gaze.html">Practical</a>
+<a href="datasets_datasets.html">Datasets</a>
+<a href="surveys_surveys.html">Surveys</a>
+
+
+</div> 
+
+<div class="topnav">
+
+<a href="behavioral_studies.html">Studies</a>
+<a href="#" class="active">Factors</a>
+<a href="behavioral_eye_tracking_measures.html">Eye tracking measures</a>
+
+
+</div> 
+
+		<div id="example-table"></div>
+						<script type="text/javascript" src="assets/js/tabulator/4.9/tabulator.min.js"></script>
+		<script type="text/javascript">
+	//sample data
+	var tabledata = [
+	{reference: "2021_TransRes_Vlakveld",primary_driving_task: "-",secondary_non_driving_task: "text entry: visual-manual",driving_experience: "-",demographics: "-",inattention: "distraction",environment: "-",automation: "-"},
+{reference: "2021_SafetyScience_Lobjois",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "-",environment: "road type",automation: "-"},
+{reference: "2021_AppliedErgonomics_Muela",primary_driving_task: "hazard anticipation/detection",secondary_non_driving_task: "-",driving_experience: "duration",demographics: "-",inattention: "-",environment: "-",automation: "-"},
+{reference: "2020_TransRes_Li",primary_driving_task: "take over control",secondary_non_driving_task: "watching video: visual-cognitive",driving_experience: "-",demographics: "-",inattention: "distraction",environment: "-",automation: "lateral control, longitudinal control, TOR"},
+{reference: "2020_TransRes_Lemonnier",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "-",environment: "intersection, traffic",automation: "-"},
+{reference: "2020_TransRes_Lee",primary_driving_task: "hazard anticipation/detection",secondary_non_driving_task: "-",driving_experience: "duration",demographics: "-",inattention: "-",environment: "-",automation: "-"},
+{reference: "2020_TransRes_Huo",primary_driving_task: "hazard anticipation/detection",secondary_non_driving_task: "-",driving_experience: "style",demographics: "-",inattention: "-",environment: "traffic",automation: "-"},
+{reference: "2020_TR_Zheng",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "duration",demographics: "-",inattention: "-",environment: "-",automation: "-"},
+{reference: "2020_TR_Lu",primary_driving_task: "hazard response",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "-",environment: "-",automation: "-"},
+{reference: "2020_PlosONE_Mikula",primary_driving_task: "maintain speed",secondary_non_driving_task: "visual search: visual",driving_experience: "-",demographics: "-",inattention: "distraction",environment: "visibility",automation: "-"},
+{reference: "2020_Information_Feierle",primary_driving_task: "-",secondary_non_driving_task: "watching video: visual-cognitive",driving_experience: "automation",demographics: "-",inattention: "distraction",environment: "-",automation: "lateral control, longitudinal control, explainability"},
+{reference: "2020_IJHCI_Yang",primary_driving_task: "hazard anticipation/detection",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "-",environment: "-",automation: "warning/guidance"},
+{reference: "2020_HumanFactors_Unverricht",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "duration",demographics: "-",inattention: "-",environment: "road type",automation: "-"},
+{reference: "2020_HumanFactors_He",primary_driving_task: "hazard anticipation/detection",secondary_non_driving_task: "play video game: visual-manual",driving_experience: "duration",demographics: "-",inattention: "distraction",environment: "road type",automation: "-"},
+{reference: "2020_Fpsych_Stephenson",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "-",demographics: "age",inattention: "-",environment: "-",automation: "lateral control, longitudinal control, trust"},
+{reference: "2020_ETRR_Lehtonen",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "-",environment: "-",automation: "warning/guidance"},
+{reference: "2020_CHI_Gerber",primary_driving_task: "-",secondary_non_driving_task: "watching video: visual-cognitive",driving_experience: "-",demographics: "-",inattention: "distraction",environment: "-",automation: "lateral control, longitudinal control"},
+{reference: "2020_AccidentAnalysis_Yang",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "-",environment: "sign",automation: "-"},
+{reference: "2020_AccidentAnalysis_Meuleners",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "distraction",environment: "billboard",automation: "-"},
+{reference: "2020_AccidentAnalysis_Li",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "-",environment: "road type, traffic",automation: "-"},
+{reference: "2020_AccidentAnalysis_Du_1",primary_driving_task: "take over control",secondary_non_driving_task: "N-back task: visual-manual-cognitive",driving_experience: "-",demographics: "-",inattention: "distraction",environment: "traffic",automation: "lateral control, longitudinal control, TOR"},
+{reference: "2019_TRR_Pankok",primary_driving_task: "-",secondary_non_driving_task: "visual search: visual",driving_experience: "nan",demographics: "-",inattention: "-",environment: "sign, billboard",automation: "-"},
+{reference: "2019_TRR_Mangalore",primary_driving_task: "hazard anticipation/detection",secondary_non_driving_task: "-",driving_experience: "duration",demographics: "-",inattention: "-",environment: "-",automation: "-"},
+{reference: "2019_TransRes_Miller",primary_driving_task: "vehicle following",secondary_non_driving_task: "select contact: visual-manual, playlist search: visual-manual, radio tuning: visual-manual, adjust climate: visual-manual, dial number: visual-manual",driving_experience: "training",demographics: "age",inattention: "distraction",environment: "-",automation: "lateral control, longitudinal control"},
+{reference: "2019_TransRes_Lu",primary_driving_task: "take over control, hazard response",secondary_non_driving_task: "play video game: visual-manual",driving_experience: "-",demographics: "-",inattention: "distraction",environment: "-",automation: "lateral control, longitudinal control, TOR"},
+{reference: "2019_TransRes_Louw",primary_driving_task: "take over control",secondary_non_driving_task: "sign/billboard reading: visual, arrows: visual-manual",driving_experience: "-",demographics: "-",inattention: "-",environment: "-",automation: "lateral control, longitudinal control, failure"},
+{reference: "2019_TransRes_Hashash",primary_driving_task: "-",secondary_non_driving_task: "cell phone browsing: visual-manual, text entry: visual-manual",driving_experience: "-",demographics: "-",inattention: "distraction",environment: "-",automation: "-"},
+{reference: "2019_TransRes_Clark",primary_driving_task: "take over control",secondary_non_driving_task: "play video game: visual-manual",driving_experience: "nan",demographics: "age, gender",inattention: "distraction",environment: "-",automation: "lateral control, longitudinal control, TOR"},
+{reference: "2019_TransRes_Chen",primary_driving_task: "hazard anticipation/detection",secondary_non_driving_task: "-",driving_experience: "duration",demographics: "-",inattention: "-",environment: "-",automation: "-"},
+{reference: "2019_SAP_Bozkir",primary_driving_task: "hazard anticipation/detection, hazard response",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "-",environment: "-",automation: "warning/guidance"},
+{reference: "2019_SafetyScience_Kuo",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "drowsiness",environment: "-",automation: "-"},
+{reference: "2019_JTEPBS_Zhang",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "distraction",environment: "sign, billboard, visibility",automation: "-"},
+{reference: "2019_JSR_Li",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "-",environment: "intersection",automation: "-"},
+{reference: "2019_ITSC_Fang",primary_driving_task: "hazard anticipation/detection",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "-",environment: "-",automation: "-"},
+{reference: "2019_IJHCI_Navarro",primary_driving_task: "vehicle following",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "-",environment: "-",automation: "lateral control, longitudinal control"},
+{reference: "2019_HumanFactorsErgonomics_Kim",primary_driving_task: "hazard anticipation/detection",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "-",environment: "-",automation: "-"},
+{reference: "2019_HumanFactorsErgonomics_Beanland",primary_driving_task: "hazard anticipation/detection",secondary_non_driving_task: "-",driving_experience: "duration",demographics: "-",inattention: "-",environment: "road type",automation: "-"},
+{reference: "2019_HumanFactors_Kim",primary_driving_task: "hazard anticipation/detection",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "-",environment: "-",automation: "warning/guidance"},
+{reference: "2019_HumanFactors_Gaspar",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "-",environment: "-",automation: "lateral control, longitudinal control"},
+{reference: "2019_DrugAlcoDependence_Shiferaw",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "intoxication",environment: "-",automation: "-"},
+{reference: "2019_AutomotiveUI_Walch",primary_driving_task: "-",secondary_non_driving_task: "SuRT: visual-manual",driving_experience: "-",demographics: "-",inattention: "distraction",environment: "-",automation: "lateral control, longitudinal control, warning/guidance, monitoring"},
+{reference: "2019_AppliedErgonomics_Robbins",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "duration",demographics: "-",inattention: "-",environment: "intersection",automation: "-"},
+{reference: "2019_AppliedErgonomics_Costa",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "distraction",environment: "sign, billboard",automation: "-"},
+{reference: "2019_AccidentAnalysis_Vogelpohl",primary_driving_task: "take over control, hazard response",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "drowsiness",environment: "-",automation: "lateral control, longitudinal control, TOR"},
+{reference: "2019_AccidentAnalysis_Stahl",primary_driving_task: "hazard anticipation/detection, hazard response",secondary_non_driving_task: "-",driving_experience: "duration",demographics: "-",inattention: "-",environment: "-",automation: "-"},
+{reference: "2018_TRR_Li",primary_driving_task: "vehicle following, hazard response",secondary_non_driving_task: "conversation: cognitive",driving_experience: "duration",demographics: "gender",inattention: "-",environment: "-",automation: "-"},
+{reference: "2018_TransRes_Young",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "location",demographics: "-",inattention: "-",environment: "-",automation: "-"},
+{reference: "2018_TransRes_Kraft",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "-",environment: "-",automation: "lateral control, longitudinal control, explainability, trust"},
+{reference: "2018_TransRes_Kidd",primary_driving_task: "parking",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "-",environment: "-",automation: "lateral control, longitudinal control"},
+{reference: "2018_TR_Vlakveld",primary_driving_task: "take over control, hazard anticipation/detection",secondary_non_driving_task: "-",driving_experience: "duration",demographics: "-",inattention: "-",environment: "-",automation: "lateral control, longitudinal control, TOR, trust"},
+{reference: "2018_TIV_Wang",primary_driving_task: "hazard response",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "-",environment: "road geometry",automation: "lateral control, warning/guidance"},
+{reference: "2018_TITS_Morando",primary_driving_task: "vehicle following",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "-",environment: "visibility",automation: "lateral control, longitudinal control"},
+{reference: "2018_NatSciReports_Shiferaw",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "drowsiness",environment: "-",automation: "-"},
+{reference: "2018_ITSC_Yang",primary_driving_task: "take over control, hazard response",secondary_non_driving_task: "SuRT: visual-manual",driving_experience: "-",demographics: "-",inattention: "distraction",environment: "-",automation: "lateral control, longitudinal control, TOR, warning/guidance"},
+{reference: "2018_HumanFactorsErgonomics_Zahabi",primary_driving_task: "-",secondary_non_driving_task: "visual search: visual",driving_experience: "-",demographics: "age",inattention: "distraction",environment: "sign, billboard",automation: "-"},
+{reference: "2018_HumanFactors_Victor",primary_driving_task: "vehicle following, take over control, hazard response",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "drowsiness",environment: "-",automation: "lateral control, longitudinal control, monitoring, TOR, warning/guidance, trust"},
+{reference: "2018_HumanFactors_Robbins",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "duration, other vehicle types",demographics: "nan",inattention: "-",environment: "intersection",automation: "-"},
+{reference: "2018_Ergonomics_Costa",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "-",environment: "sign",automation: "-"},
+{reference: "2018_AppliedErgonomics_Zahabi",primary_driving_task: "hazard response",secondary_non_driving_task: "plate number check: visual-manual",driving_experience: "-",demographics: "-",inattention: "distraction",environment: "-",automation: "-"},
+{reference: "2018_AppliedErgonomics_Costa",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "-",environment: "sign",automation: "-"},
+{reference: "2018_AHAT_Feldhutter",primary_driving_task: "take over control",secondary_non_driving_task: "quiz game: visual-manual",driving_experience: "nan",demographics: "-",inattention: "distraction",environment: "-",automation: "lateral control, longitudinal control, TOR, failure"},
+{reference: "2018_AccidentAnalysis_Sun",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "-",demographics: "age",inattention: "-",environment: "intersection",automation: "-"},
+{reference: "2018_AccidentAnalysis_Lee",primary_driving_task: "vehicle following, hazard response",secondary_non_driving_task: "radio tuning: visual-manual",driving_experience: "-",demographics: "-",inattention: "distraction",environment: "-",automation: "-"},
+{reference: "2018_AccidentAnalysis_Kircher",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "-",environment: "-",automation: "-"},
+{reference: "2017_TransRes_Louw",primary_driving_task: "vehicle following",secondary_non_driving_task: "IQ test: visual-cognitive",driving_experience: "nan",demographics: "-",inattention: "-",environment: "visibility",automation: "lateral control, longitudinal control, TOR"},
+{reference: "2017_TrafficInjuryPrevention_Wang",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "-",demographics: "age",inattention: "drowsiness",environment: "-",automation: "-"},
+{reference: "2017_SNPD_Shinohara",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "duration, location",demographics: "-",inattention: "-",environment: "location, road geometry",automation: "-"},
+{reference: "2017_PONE_VanLeeuwen",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "racing",demographics: "-",inattention: "-",environment: "-",automation: "-"},
+{reference: "2017_JSR_Wang",primary_driving_task: "-",secondary_non_driving_task: "cell phone dialing: visual-manual, text entry: visual-manual",driving_experience: "-",demographics: "-",inattention: "distraction",environment: "visibility",automation: "-"},
+{reference: "2017_DrivingAssessmentConference_Yamani",primary_driving_task: "hazard anticipation/detection",secondary_non_driving_task: "-",driving_experience: "duration, training",demographics: "-",inattention: "-",environment: "-",automation: "-"},
+{reference: "2017_CHB_Stenberger",primary_driving_task: "hazard response",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "drowsiness",environment: "-",automation: "monitoring, warning/guidance"},
+{reference: "2017_AutoUI_Shinohara",primary_driving_task: "hazard anticipation/detection",secondary_non_driving_task: "-",driving_experience: "duration, location",demographics: "-",inattention: "-",environment: "location",automation: "-"},
+{reference: "2017_AppliedErgonomics_Zahabi",primary_driving_task: "-",secondary_non_driving_task: "visual search: visual",driving_experience: "-",demographics: "age",inattention: "distraction",environment: "sign, billboard",automation: "-"},
+{reference: "2017_AppliedErgonomics_Ahlstrom",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "-",environment: "road type",automation: "monitoring, warning/guidance"},
+{reference: "2017_AppErgonomics_Lu",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "-",environment: "traffic",automation: "-"},
+{reference: "2017_AdvErgonomics_Feldhutter",primary_driving_task: "take over control, hazard response",secondary_non_driving_task: "SuRT: visual-manual",driving_experience: "-",demographics: "-",inattention: "distraction",environment: "-",automation: "lateral control, longitudinal control, TOR"},
+{reference: "2017_AccidentAnalysis_Seppelt",primary_driving_task: "hazard response",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "distraction",environment: "-",automation: "-"},
+{reference: "2017_AccidentAnalysis_Clark",primary_driving_task: "take over control",secondary_non_driving_task: "electronic device: visual-manual, conversation: cognitive",driving_experience: "-",demographics: "age",inattention: "distraction",environment: "-",automation: "lateral control, longitudinal control, TOR"},
+{reference: "2017_AccidentAnalysis_Beanland",primary_driving_task: "hazard anticipation/detection",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "-",environment: "road type",automation: "-"},
+{reference: "2016_TransRes_Fitzpatrick",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "-",environment: "vegetation",automation: "-"},
+{reference: "2016_TraffInjuryPrevention_Jackson",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "drowsiness",environment: "-",automation: "-"},
+{reference: "2016_TR_Topolsek",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "distraction",environment: "sign, billboard",automation: "-"},
+{reference: "2016_TR_Stavrinos",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "-",demographics: "age",inattention: "distraction",environment: "sign, billboard",automation: "-"},
+{reference: "2016_PLOS_Yan",primary_driving_task: "hazard anticipation/detection, hazard response",secondary_non_driving_task: "-",driving_experience: "-",demographics: "gender",inattention: "-",environment: "intersection",automation: "-"},
+{reference: "2016_PLOS_Yamani",primary_driving_task: "hazard anticipation/detection",secondary_non_driving_task: "visual search: visual",driving_experience: "-",demographics: "age",inattention: "-",environment: "intersection",automation: "-"},
+{reference: "2016_PLOS_Cheng",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "-",environment: "traffic",automation: "-"},
+{reference: "2016_OptometryVisionScience_Lee",primary_driving_task: "hazard anticipation/detection",secondary_non_driving_task: "-",driving_experience: "-",demographics: "age",inattention: "-",environment: "-",automation: "-"},
+{reference: "2016_JTSS_Grippenkoven",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "-",environment: "intersection",automation: "-"},
+{reference: "2016_JoV_Huestegge",primary_driving_task: "hazard anticipation/detection",secondary_non_driving_task: "-",driving_experience: "duration",demographics: "-",inattention: "-",environment: "-",automation: "-"},
+{reference: "2016_JEMR_Sun",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "-",demographics: "age",inattention: "-",environment: "intersection, road type",automation: "-"},
+{reference: "2016_JARMAC_Wood",primary_driving_task: "hazard anticipation/detection",secondary_non_driving_task: "auditory tone task: cognitive",driving_experience: "-",demographics: "-",inattention: "distraction",environment: "-",automation: "-"},
+{reference: "2016_JAR_Wilson",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "distraction",environment: "billboard",automation: "-"},
+{reference: "2016_IV_Schmidt",primary_driving_task: "take over control",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "drowsiness",environment: "-",automation: "lateral control, longitudinal control, monitoring"},
+{reference: "2016_HumanFactors_Hergeth",primary_driving_task: "take over control",secondary_non_driving_task: "SuRT: visual-manual",driving_experience: "-",demographics: "-",inattention: "distraction",environment: "-",automation: "lateral control, longitudinal control, TOR, trust"},
+{reference: "2016_HumanFactors_Gaspar",primary_driving_task: "vehicle following",secondary_non_driving_task: "N-back task: cognitive",driving_experience: "-",demographics: "-",inattention: "distraction",environment: "wind",automation: "-"},
+{reference: "2016_CHI_Lee",primary_driving_task: "vehicle following",secondary_non_driving_task: "text entry: visual-manual",driving_experience: "-",demographics: "-",inattention: "distraction",environment: "-",automation: "-"},
+{reference: "2016_CHI_Akkil",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "duration",demographics: "-",inattention: "-",environment: "intersection",automation: "-"},
+{reference: "2016_AutoUI_Smith",primary_driving_task: "vehicle following",secondary_non_driving_task: "visual search: visual",driving_experience: "-",demographics: "-",inattention: "distraction",environment: "-",automation: "-"},
+{reference: "2016_AutoUI_Hurtado",primary_driving_task: "-",secondary_non_driving_task: "sign/billboard reading: visual",driving_experience: "-",demographics: "-",inattention: "distraction",environment: "location, sign",automation: "-"},
+{reference: "2016_AutoUI_Borojeni",primary_driving_task: "take over control",secondary_non_driving_task: "N-back task: visual-manual-cognitive",driving_experience: "-",demographics: "-",inattention: "distraction",environment: "-",automation: "lateral control, longitudinal control, TOR, warning/guidance"},
+{reference: "2016_AccidentAnalysis_Zeeb",primary_driving_task: "take over control",secondary_non_driving_task: "watching video: visual-cognitive, reading news: visual, answering email: visual-manual",driving_experience: "automation",demographics: "-",inattention: "distraction",environment: "-",automation: "lateral control, longitudinal control, TOR"},
+{reference: "2016_AccidentAnalysis_Morando",primary_driving_task: "vehicle following, hazard response",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "-",environment: "-",automation: "longitudinal control, warning/guidance"},
+{reference: "2016_AccidentAnalysis_Kountouriotis",primary_driving_task: "vehicle following",secondary_non_driving_task: "counting backwards: cognitive, arrows task: visual-manual",driving_experience: "-",demographics: "-",inattention: "distraction",environment: "road geometry",automation: "-"},
+{reference: "2016_AccidentAnalysis_Kidd",primary_driving_task: "parking",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "-",environment: "-",automation: "warning/guidance"},
+{reference: "2016_AccidentAnalysis_Belyusar",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "-",demographics: "age",inattention: "distraction",environment: "billboard",automation: "-"},
+{reference: "2015_VC_Mackenzie",primary_driving_task: "hazard anticipation/detection",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "-",environment: "-",automation: "-"},
+{reference: "2015_TRR_Samuel",primary_driving_task: "hazard anticipation/detection",secondary_non_driving_task: "visual search: visual",driving_experience: "-",demographics: "-",inattention: "distraction",environment: "-",automation: "-"},
+{reference: "2015_TransRes_Niezgoda",primary_driving_task: "-",secondary_non_driving_task: "N-back task: cognitive",driving_experience: "-",demographics: "-",inattention: "distraction",environment: "-",automation: "-"},
+{reference: "2015_TransRes_Bargman",primary_driving_task: "vehicle following, hazard response",secondary_non_driving_task: "radio tuning: visual-manual",driving_experience: "-",demographics: "-",inattention: "distraction",environment: "-",automation: "-"},
+{reference: "2015_TrafficInjuryPrevention_Borowsky",primary_driving_task: "hazard anticipation/detection",secondary_non_driving_task: "spatial memory task: visual-cognitive",driving_experience: "-",demographics: "-",inattention: "distraction",environment: "-",automation: "-"},
+{reference: "2015_TR_Lemonnier",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "-",environment: "intersection, traffic",automation: "-"},
+{reference: "2015_TR_Eyraud",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "-",environment: "-",automation: "warning/guidance"},
+{reference: "2015_PONE_Itkonen",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "-",environment: "road geometry",automation: "-"},
+{reference: "2015_OPO_Lee",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "-",demographics: "age",inattention: "-",environment: "intersection",automation: "-"},
+{reference: "2015_IET_Yang",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "-",environment: "intersection",automation: "warning/guidance"},
+{reference: "2015_HumanFactors_Liang",primary_driving_task: "-",secondary_non_driving_task: "text reading: visual",driving_experience: "-",demographics: "-",inattention: "distraction",environment: "road geometry",automation: "-"},
+{reference: "2015_Ergonomics_vanLeeuwen",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "-",environment: "road geometry",automation: "-"},
+{reference: "2015_DDI_Tivesten",primary_driving_task: "vehicle following, hazard response",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "-",environment: "-",automation: "lateral control, longitudinal control, warning/guidance"},
+{reference: "2015_BMCGeriatrics_Urwyler",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "-",demographics: "age",inattention: "-",environment: "visibility",automation: "-"},
+{reference: "2015_AppliedErgonomics_Kaber",primary_driving_task: "-",secondary_non_driving_task: "visual search: visual",driving_experience: "-",demographics: "-",inattention: "distraction",environment: "sign, construction",automation: "-"},
+{reference: "2015_AccidentAnalysis_Peng",primary_driving_task: "-",secondary_non_driving_task: "text entry: visual-manual, text reading: visual",driving_experience: "-",demographics: "-",inattention: "distraction",environment: "traffic",automation: "-"},
+{reference: "2014_TransRes_vanLeeuwen",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "-",environment: "visibility, road geometry",automation: "-"},
+{reference: "2014_TransRes_Tivesten",primary_driving_task: "-",secondary_non_driving_task: "cell phone dialing: visual-manual, text entry: visual-manual, text reading: visual",driving_experience: "-",demographics: "-",inattention: "distraction",environment: "road type, intersection, visibility",automation: "-"},
+{reference: "2014_TransRes_Costa",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "-",environment: "sign",automation: "-"},
+{reference: "2014_TransRes_Ciceri",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "duration, gaming",demographics: "-",inattention: "-",environment: "-",automation: "-"},
+{reference: "2014_TransRes_Birrell",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "-",environment: "-",automation: "warning/guidance"},
+{reference: "2014_TR_Reimer",primary_driving_task: "-",secondary_non_driving_task: "cell phone dialing: visual-manual",driving_experience: "-",demographics: "gender",inattention: "distraction",environment: "-",automation: "-"},
+{reference: "2014_TR_Merat",primary_driving_task: "take over control",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "-",environment: "-",automation: "lateral control, longitudinal control, TOR"},
+{reference: "2014_TR_Alberti",primary_driving_task: "hazard response",secondary_non_driving_task: "-",driving_experience: "duration",demographics: "-",inattention: "-",environment: "visibility",automation: "-"},
+{reference: "2014_SafetyScience_Young",primary_driving_task: "-",secondary_non_driving_task: "text entry: visual-manual, text reading: visual, quiz: visual-manual",driving_experience: "-",demographics: "-",inattention: "distraction",environment: "-",automation: "-"},
+{reference: "2014_SafetyScience_Lemercier",primary_driving_task: "-",secondary_non_driving_task: "memory task: visual-cognitive",driving_experience: "-",demographics: "-",inattention: "distraction",environment: "-",automation: "-"},
+{reference: "2014_JEMR_Lemonnier",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "-",environment: "traffic, intersection",automation: "-"},
+{reference: "2014_JAH_SimonsMorton",primary_driving_task: "-",secondary_non_driving_task: "cell phone dialing: visual-manual, cell phone conversation: cognitive, text entry: visual-manual, eating: visual-manual, drinking: visual-manual, radio tuning: visual-manual",driving_experience: "duration",demographics: "-",inattention: "distraction",environment: "-",automation: "-"},
+{reference: "2014_HumanFactorsErognomics_Lorenz",primary_driving_task: "take over control, hazard response",secondary_non_driving_task: "SuRT: visual-manual",driving_experience: "-",demographics: "-",inattention: "distraction",environment: "-",automation: "lateral control, longitudinal control, warning/guidance"},
+{reference: "2014_HumanFactorsErgonomics_Schieber",primary_driving_task: "-",secondary_non_driving_task: "sign/billboard reading: visual",driving_experience: "-",demographics: "-",inattention: "-",environment: "sign",automation: "-"},
+{reference: "2014_HumanFactors_He",primary_driving_task: "-",secondary_non_driving_task: "digit ordering: cognitive",driving_experience: "-",demographics: "-",inattention: "distraction",environment: "wind",automation: "longitudinal control"},
+{reference: "2014_HFES_Liang",primary_driving_task: "hazard response",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "distraction",environment: "-",automation: "-"},
+{reference: "2014_CogTechWork_Werneke",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "-",environment: "intersection, traffic",automation: "-"},
+{reference: "2014_ACM_Reimer",primary_driving_task: "-",secondary_non_driving_task: "radio tuning: visual-manual, navigation: cognitive",driving_experience: "-",demographics: "-",inattention: "distraction",environment: "-",automation: "-"},
+{reference: "2014_AccidentPrevention_Jones",primary_driving_task: "hazard anticipation/detection",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "-",environment: "-",automation: "-"},
+{reference: "2014_AccidentAnalysis_Lehtonen",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "duration",demographics: "-",inattention: "-",environment: "road geometry",automation: "-"},
+{reference: "2013_TransRes_Benedetto",primary_driving_task: "-",secondary_non_driving_task: "SuRT: visual-manual",driving_experience: "-",demographics: "-",inattention: "distraction",environment: "sign",automation: "-"},
+{reference: "2013_TransportRes_Savage",primary_driving_task: "hazard anticipation/detection",secondary_non_driving_task: "puzzles: cognitive",driving_experience: "-",demographics: "-",inattention: "distraction",environment: "-",automation: "-"},
+{reference: "2013_TrafficInjuryPrevention_Dukic",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "distraction",environment: "sign, billboard",automation: "-"},
+{reference: "2013_TR_Romoser",primary_driving_task: "vehicle following, hazard anticipation/detection",secondary_non_driving_task: "-",driving_experience: "-",demographics: "age",inattention: "-",environment: "intersection",automation: "-"},
+{reference: "2013_TR_Lim",primary_driving_task: "hazard anticipation/detection",secondary_non_driving_task: "-",driving_experience: "location, duration",demographics: "-",inattention: "-",environment: "location",automation: "-"},
+{reference: "2013_TR_Jamson",primary_driving_task: "-",secondary_non_driving_task: "watching video: visual-cognitive, listen to radio: visual-manual",driving_experience: "-",demographics: "-",inattention: "distraction, drowsiness",environment: "traffic",automation: "lateral control, longitudinal control"},
+{reference: "2013_TITS_Yekhshatyan",primary_driving_task: "-",secondary_non_driving_task: "arrows task: visual-manual, puzzle: cognitive, matching: visual-manual-cognitive",driving_experience: "-",demographics: "-",inattention: "distraction",environment: "road geometry",automation: "-"},
+{reference: "2013_TITS_Ahlstrom",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "-",environment: "-",automation: "monitoring, warning/guidance"},
+{reference: "2013_SafetyResearch_Scott",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "duration",demographics: "age",inattention: "-",environment: "intersection",automation: "-"},
+{reference: "2013_PUC_Kujala",primary_driving_task: "-",secondary_non_driving_task: "playlist search task: visual-manual",driving_experience: "-",demographics: "-",inattention: "distraction",environment: "-",automation: "-"},
+{reference: "2013_JoV_Lappi",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "-",environment: "road geometry",automation: "-"},
+{reference: "2013_Ergonomics_Lehtonen",primary_driving_task: "-",secondary_non_driving_task: "PASAT: cognitive",driving_experience: "-",demographics: "-",inattention: "-",environment: "road geometry",automation: "-"},
+{reference: "2013_AppliedErgonomics_Zhang",primary_driving_task: "hazard anticipation/detection",secondary_non_driving_task: "visual search: visual",driving_experience: "-",demographics: "-",inattention: "distraction",environment: "sign",automation: "-"},
+{reference: "2013_ACP_Garrison",primary_driving_task: "hazard anticipation/detection",secondary_non_driving_task: "conversation: cognitive",driving_experience: "-",demographics: "-",inattention: "distraction",environment: "sign, billboard",automation: "-"},
+{reference: "2013_AccidentPrevention_Wong",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "distraction",environment: "traffic, intersection",automation: "-"},
+{reference: "2013_AccidentAnalysis_Peng",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "-",demographics: "age",inattention: "distraction",environment: "road type",automation: "-"},
+{reference: "2013_AccidentAnalysis_Dozza",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "-",demographics: "age, gender",inattention: "distraction",environment: "traffic, road type, visibility",automation: "-"},
+{reference: "2013_AccidentAnalysis_Borowsky",primary_driving_task: "hazard anticipation/detection",secondary_non_driving_task: "-",driving_experience: "duration",demographics: "-",inattention: "-",environment: "-",automation: "-"},
+{reference: "2012_TRR_Divekar",primary_driving_task: "vehicle following, hazard anticipation/detection",secondary_non_driving_task: "visual search: visual",driving_experience: "duration",demographics: "-",inattention: "distraction",environment: "-",automation: "-"},
+{reference: "2012_TR_Kaber",primary_driving_task: "vehicle following",secondary_non_driving_task: "arrows task: visual-manual, puzzle: cognitive",driving_experience: "-",demographics: "-",inattention: "distraction",environment: "-",automation: "-"},
+{reference: "2012_SAE_Kim",primary_driving_task: "parking, hazard response",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "-",environment: "-",automation: "warning/guidance"},
+{reference: "2012_PLOS_Mars",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "-",environment: "road geometry",automation: "lateral control"},
+{reference: "2012_JoV_Sullivan",primary_driving_task: "vehicle following",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "-",environment: "-",automation: "-"},
+{reference: "2012_JoV_Doshi",primary_driving_task: "-",secondary_non_driving_task: "text reading: visual",driving_experience: "-",demographics: "-",inattention: "distraction",environment: "-",automation: "-"},
+{reference: "2012_HumanFactors_Reimer",primary_driving_task: "-",secondary_non_driving_task: "N-back task: cognitive",driving_experience: "-",demographics: "-",inattention: "distraction",environment: "-",automation: "-"},
+{reference: "2012_HumanFactors_Lee",primary_driving_task: "hazard response, vehicle following",secondary_non_driving_task: "playlist search task: visual-manual, radio tuning: visual-manual",driving_experience: "-",demographics: "-",inattention: "distraction",environment: "traffic, construction",automation: "-"},
+{reference: "2012_ACM_Pomarjanschi",primary_driving_task: "hazard anticipation/detection, hazard response",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "-",environment: "-",automation: "warning/guidance"},
+{reference: "2012_AccidentAnalysis_Werneke",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "-",environment: "traffic, intersection",automation: "-"},
+{reference: "2012_AccidentAnalysis_Crundall_1",primary_driving_task: "hazard anticipation/detection",secondary_non_driving_task: "-",driving_experience: "duration",demographics: "-",inattention: "-",environment: "-",automation: "-"},
+{reference: "2012_AccidentAnalysis_Crundall",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "duration, other vehicle types",demographics: "-",inattention: "-",environment: "intersection",automation: "-"},
+{reference: "2012_AccidentAnalysis_Borowsky",primary_driving_task: "hazard anticipation/detection",secondary_non_driving_task: "-",driving_experience: "duration, training",demographics: "-",inattention: "-",environment: "road type",automation: "-"},
+{reference: "2011_VR_Underwood",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "other vehicle types",demographics: "-",inattention: "-",environment: "intersection",automation: "-"},
+{reference: "2011_TransRes_Vkalveld",primary_driving_task: "hazard anticipation/detection",secondary_non_driving_task: "-",driving_experience: "duration, training",demographics: "-",inattention: "-",environment: "-",automation: "-"},
+{reference: "2011_TR_Metz",primary_driving_task: "hazard anticipation/detection, hazard response",secondary_non_driving_task: "number task: visual, menu navigation: visual-manual",driving_experience: "-",demographics: "-",inattention: "distraction",environment: "-",automation: "-"},
+{reference: "2011_TR_Briggs",primary_driving_task: "-",secondary_non_driving_task: "conversation: cognitive",driving_experience: "-",demographics: "-",inattention: "distraction",environment: "-",automation: "-"},
+{reference: "2011_DrivSymposium_Taylor",primary_driving_task: "hazard anticipation/detection",secondary_non_driving_task: "-",driving_experience: "duration,training",demographics: "-",inattention: "-",environment: "-",automation: "-"},
+{reference: "2011_CTW_Nabatilan",primary_driving_task: "-",secondary_non_driving_task: "conversation: cognitive",driving_experience: "duration",demographics: "-",inattention: "distraction",environment: "-",automation: "-"},
+{reference: "2011_AppliedErgonomics_Edquist",primary_driving_task: "-",secondary_non_driving_task: "sign/billboard reading: visual",driving_experience: "duration",demographics: "age",inattention: "distraction",environment: "sign, billboard",automation: "-"},
+{reference: "2011_AccidentAnalysis_Owens",primary_driving_task: "-",secondary_non_driving_task: "text entry: visual-manual, text reading: visual",driving_experience: "-",demographics: "age",inattention: "distraction",environment: "-",automation: "-"},
+{reference: "2011_AccidentAnalysis_Andersen",primary_driving_task: "vehicle following",secondary_non_driving_task: "detect lights: visual",driving_experience: "-",demographics: "-",inattention: "distraction",environment: "-",automation: "-"},
+{reference: "2010_TransEng_Bonmez",primary_driving_task: "vehicle following",secondary_non_driving_task: "playlist search: visual-manual",driving_experience: "-",demographics: "-",inattention: "distraction",environment: "-",automation: "-"},
+{reference: "2010_TR_Klauer",primary_driving_task: "hazard response",secondary_non_driving_task: "radio tuning: visual-manual, drinking: visual-manual, eating: visual-manual, talking to passenger: cognitive, smoking: visual-manual, lost in thought: cognitive, answering phone: visual-manual, operating mobile device: visual-manual, reading text: visual, reaching for object: visual-manual, personal hygiene: visual-manual",driving_experience: "-",demographics: "-",inattention: "distraction",environment: "-",automation: "-"},
+{reference: "2010_TR_Huestegge",primary_driving_task: "hazard anticipation/detection",secondary_non_driving_task: "-",driving_experience: "duration",demographics: "-",inattention: "-",environment: "-",automation: "-"},
+{reference: "2010_Perception_vanLoon",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "-",environment: "intersection",automation: "-"},
+{reference: "2010_HumanFactorsErgonomics_Reimer",primary_driving_task: "-",secondary_non_driving_task: "N-back task: cognitive",driving_experience: "-",demographics: "-",inattention: "distraction",environment: "-",automation: "-"},
+{reference: "2010_HumanFactors_Cooper",primary_driving_task: "vehicle following",secondary_non_driving_task: "detect lights: visual",driving_experience: "-",demographics: "-",inattention: "distraction",environment: "-",automation: "-"},
+{reference: "2010_CHI_Jensen",primary_driving_task: "-",secondary_non_driving_task: "navigation: visual-manual, navigation: cognitive",driving_experience: "-",demographics: "-",inattention: "distraction",environment: "-",automation: "-"},
+{reference: "2010_AccidentAnalysis_White",primary_driving_task: "hazard anticipation/detection, hazard response",secondary_non_driving_task: "conversation: cognitive",driving_experience: "-",demographics: "gender",inattention: "distraction",environment: "-",automation: "-"},
+{reference: "2010_AccidentAnalysis_Konstantopoulos",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "duration",demographics: "-",inattention: "-",environment: "visibility",automation: "-"},
+{reference: "2010_AccidentAnalysis_Borowsky",primary_driving_task: "hazard anticipation/detection",secondary_non_driving_task: "-",driving_experience: "duration",demographics: "age",inattention: "-",environment: "-",automation: "-"},
+	];
+
+	var table = new Tabulator("#example-table", {
+		height:700, // set height of table to enable virtual DOM
+		data:tabledata, //load initial data into table
+		layout:"fitColumns", //fit columns to width of table (optional)
+		columns:[ //Define Table Columns
+			{title:"Reference", field:"reference", sorter:"string"},
+			{title:"Primary<br>(driving)<br>task", field:"primary_driving_task", sorter:"string"},
+			{title:"Secondary<br>(non-driving)<br>task", field:"secondary_non_driving_task", sorter:"string"},
+			{title:"Driving<br>experience", field:"driving_experience", sorter:"string"},
+			{title:"Demographics", field:"demographics", sorter:"string"},
+			{title:"Inattention", field:"inattention", sorter: "string"},
+			{title:"Environment", field:"environment", sorter: "string"},
+			{title:"Automation", field:"automation", sorter: "string"}
+		],
+	});
+</script>
+	</body>
+</html>

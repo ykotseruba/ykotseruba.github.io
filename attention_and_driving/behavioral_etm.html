@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link href="assets/css/tabulator/4.9/tabulator.min.css" rel="stylesheet">
+		<link href="assets/css/tables.css" rel="stylesheet">
+	</head>
+
+
+	<body>
+
+ <!-- Top navigation -->
+<div class="topnav">
+
+  <!-- Left-aligned links (default) -->
+  <a href="https://github.com/ykotseruba/attention_and_driving">Back to Github</a>
+  <a href="#" class="active">Behavioral</a>
+  <a href="practical_gaze_outside.html">Practical</a>
+  <a href="datasets.html">Datasets</a>
+  <a href="surveys.html">Surveys</a>
+
+</div> 
+
+<div class="topnav">
+
+  <!-- Left-aligned links (default) -->
+  <a href="behavioral_studies.html" >Studies</a>
+  <a href="behavioral_factors.html">Factors</a>
+  <a href="" class="active" >Eye-tracking measures</a>
+
+</div> 
+
+		<div id="example-table"></div>
+						<script type="text/javascript" src="assets/js/tabulator/4.9/tabulator.min.js"></script>
+		<script type="text/javascript">
+	//sample data
+	var tabledata = [
+	{reference: "2021_TransRes_Vlakveld",position: "-",position_duration: "AOI: mean, std, max",position_dispersion: "nan",numerosity: "AOI: number of glances/fixations, number long glances",latency_distance: "-",movement: "-",data_type: "fixation"},
+{reference: "2021_SafetyScience_Lobjois",position: "-",position_duration: "-",position_dispersion: "-",numerosity: "blink rate",latency_distance: "-",movement: "-",data_type: "-"},
+{reference: "2021_AppliedErgonomics_Muela",position: "-",position_duration: "-",position_dispersion: "-",numerosity: "-",latency_distance: "-",movement: "-",data_type: "-"},
+{reference: "2020_TransRes_Li",position: "pupil diameter: mean",position_duration: "AOI: mean",position_dispersion: "-",numerosity: "blink rate; AOI: transition count before TOR",latency_distance: "-",movement: "-",data_type: "glance"},
+{reference: "2020_TransRes_Lemonnier",position: "-",position_duration: "-",position_dispersion: "horizontal: eccentricity",numerosity: "-",latency_distance: "-",movement: "-",data_type: "raw data"},
+{reference: "2020_TransRes_Lee",position: "-",position_duration: "-",position_dispersion: "-",numerosity: "-",latency_distance: "-",movement: "-",data_type: "-"},
+{reference: "2020_TransRes_Huo",position: "-",position_duration: "AOI: total, mean",position_dispersion: "vertical: distribution; horizontal: distribution",numerosity: "-",latency_distance: "-",movement: "-",data_type: "fixation"},
+{reference: "2020_TR_Zheng",position: "pupil diameter: mean",position_duration: "mean; AOI: mean",position_dispersion: "horizontal: range, distribution; vertical: range, distribution",numerosity: "-",latency_distance: "-",movement: "-",data_type: "fixation"},
+{reference: "2020_TR_Lu",position: "pupil diameter: mean",position_duration: "-",position_dispersion: "-",numerosity: "-",latency_distance: "-",movement: "-",data_type: "raw data"},
+{reference: "2020_PlosONE_Mikula",position: "-",position_duration: "-",position_dispersion: "vertical: distribution, mean, std; horizontal: distribution, mean, std",numerosity: "nan",latency_distance: "-",movement: "entropy",data_type: "raw data"},
+{reference: "2020_Information_Feierle",position: "-",position_duration: "AOI: proportion",position_dispersion: "-",numerosity: "-",latency_distance: "-",movement: "-",data_type: "glance"},
+{reference: "2020_IJHCI_Yang",position: "-",position_duration: "AOI: mean, SE",position_dispersion: "nan",numerosity: "AOI: number of glances/fixations",latency_distance: "time to first fixation on AOI",movement: "-",data_type: "fixation"},
+{reference: "2020_HumanFactors_Unverricht",position: "-",position_duration: "-",position_dispersion: "-",numerosity: "AOI: percent long glances",latency_distance: "-",movement: "-",data_type: "glance"},
+{reference: "2020_HumanFactors_He",position: "-",position_duration: "AOI: proportion, mean",position_dispersion: "-",numerosity: "AOI: gaze frequency",latency_distance: "time to first fixation on AOI",movement: "-",data_type: "glance"},
+{reference: "2020_FPsych_Stephenson",position: "-",position_duration: "AOI: proportion",position_dispersion: "-",numerosity: "AOI: number of glances/fixations",latency_distance: "-",movement: "-",data_type: "fixation"},
+{reference: "2020_ETRR_Lehtonen",position: "-",position_duration: "AOI: mean, median, std",position_dispersion: "-",numerosity: "AOI: gaze frequency",latency_distance: "-",movement: "-",data_type: "fixation, glance"},
+{reference: "2020_CHI_Gerber",position: "-",position_duration: "AOI: mean long fixation",position_dispersion: "-",numerosity: "AOI: number long glances",latency_distance: "-",movement: "-",data_type: "fixation"},
+{reference: "2020_AccidentAnalysis_Yang",position: "-",position_duration: "AOI: total",position_dispersion: "vertical: distribution; horizontal: distribution",numerosity: "-",latency_distance: "-",movement: "-",data_type: "fixation"},
+{reference: "2020_AccidentAnalysis_Meuleners",position: "-",position_duration: "-",position_dispersion: "vertical: mean, std; horizontal: mean, std",numerosity: "-",latency_distance: "-",movement: "-",data_type: "fixation"},
+{reference: "2020_AccidentAnalysis_Li",position: "-",position_duration: "AOI: mean",position_dispersion: "vertical: distribution, mean std; horizontal: distribution, mean, std",numerosity: "nan",latency_distance: "-",movement: "saccade velocity, transition matrix/pattern",data_type: "fixation"},
+{reference: "2020_AccidentAnalysis_Du_1",position: "-",position_duration: "AOI: proportion",position_dispersion: "horizontal: std",numerosity: "blink count",latency_distance: "-",movement: "-",data_type: "raw data"},
+{reference: "2019_TRR_Pankok",position: "-",position_duration: "AOI: max",position_dispersion: "-",numerosity: "AOI: proportion of glances/fixations",latency_distance: "-",movement: "-",data_type: "fixation, glance"},
+{reference: "2019_TRR_Mangalore",position: "-",position_duration: "-",position_dispersion: "-",numerosity: "AOI: proportion fixated",latency_distance: "-",movement: "-",data_type: "glance"},
+{reference: "2019_TransRes_Miller",position: "-",position_duration: "AOI: total, mean",position_dispersion: "-",numerosity: "long glance count",latency_distance: "-",movement: "-",data_type: "glance"},
+{reference: "2019_TransRes_Lu",position: "-",position_duration: "AOI: proportion",position_dispersion: "-",numerosity: "-",latency_distance: "time to first fixation on AOI",movement: "-",data_type: "glance"},
+{reference: "2019_TransRes_Louw",position: "-",position_duration: "AOI: total",position_dispersion: "-",numerosity: "AOI: proportion of glances/fixations",latency_distance: "-",movement: "raw gaze time series",data_type: "raw data, fixation"},
+{reference: "2019_TransRes_Hashash",position: "-",position_duration: "mean; AOI: proportion",position_dispersion: "spatial density",numerosity: "AOI: gaze frequency",latency_distance: "-",movement: "-",data_type: "fixation"},
+{reference: "2019_TransRes_Clark",position: "-",position_duration: "AOI: total",position_dispersion: "-",numerosity: "-",latency_distance: "-",movement: "-",data_type: "raw data"},
+{reference: "2019_TransRes_Chen",position: "landing position in AOI",position_duration: "AOI: first gaze",position_dispersion: "-",numerosity: "AOI: proportion fixated",latency_distance: "time to first fixation on AOI",movement: "-",data_type: "fixation"},
+{reference: "2019_SAP_Bozkir",position: "pupil diameter: mean",position_duration: "-",position_dispersion: "-",numerosity: "-",latency_distance: "-",movement: "-",data_type: "raw data"},
+{reference: "2019_SafetyScience_Kuo",position: "-",position_duration: "-",position_dispersion: "-",numerosity: "AOI: gaze frequency; PERCLOS",latency_distance: "-",movement: "VTS",data_type: "dwell"},
+{reference: "2019_JTEPBS_Zhang",position: "pupil diameter: rate of change",position_duration: "AOI: total, distribution",position_dispersion: "-",numerosity: "-",latency_distance: "-",movement: "transition matrix/pattern",data_type: "glance"},
+{reference: "2019_JSR_Li",position: "-",position_duration: "AOI: mean",position_dispersion: "-",numerosity: "AOI: proportion of glances/fixations, proportion fixated",latency_distance: "-",movement: "transition matrix/pattern",data_type: "glance"},
+{reference: "2019_ITSC_Fang",position: "-",position_duration: "AOI: proportion",position_dispersion: "-",numerosity: "-",latency_distance: "-",movement: "-",data_type: "raw data"},
+{reference: "2019_IJHCI_Navarro",position: "-",position_duration: "AOI: mean, proportion",position_dispersion: "-",numerosity: "AOI: number of glances/fixations",latency_distance: "-",movement: "transition matrix/pattern",data_type: "raw data"},
+{reference: "2019_HumanFactorsErgonomics_Kim",position: "-",position_duration: "AOI: mean",position_dispersion: "-",numerosity: "AOI: number of glances/fixations",latency_distance: "time since last fixation, distance to target/AOI",movement: "-",data_type: "fixation"},
+{reference: "2019_HumanFactorsErgonomics_Beanland",position: "-",position_duration: "-",position_dispersion: "-",numerosity: "-",latency_distance: "-",movement: "-",data_type: "-"},
+{reference: "2019_HumanFactors_Kim",position: "-",position_duration: "AOI: mean, proportion",position_dispersion: "-",numerosity: "-",latency_distance: "-",movement: "-",data_type: "glance"},
+{reference: "2019_HumanFactors_Gaspar",position: "-",position_duration: "AOI: mean, max, total, proportion",position_dispersion: "-",numerosity: "-",latency_distance: "-",movement: "-",data_type: "glance"},
+{reference: "2019_DrugAlcoDependence_Shiferaw",position: "-",position_duration: "mean",position_dispersion: "SGE",numerosity: "gaze frequency",latency_distance: "-",movement: "GTE",data_type: "fixation"},
+{reference: "2019_AutomotiveUI_Walch",position: "-",position_duration: "-",position_dispersion: "-",numerosity: "AOI: proportion fixated",latency_distance: "-",movement: "-",data_type: "fixation"},
+{reference: "2019_AppliedErgonomics_Robbins",position: "-",position_duration: "mean",position_dispersion: "-",numerosity: "number of head movements",latency_distance: "-",movement: "saccade amplitude",data_type: "fixation"},
+{reference: "2019_AppliedErgonomics_Costa",position: "-",position_duration: "AOI: mean, distribution",position_dispersion: "-",numerosity: "AOI: proportion fixated, percent long glances",latency_distance: "distance to target/AOI",movement: "-",data_type: "fixation"},
+{reference: "2019_AccidentAnalysis_Vogelpohl",position: "-",position_duration: "-",position_dispersion: "-",numerosity: "-",latency_distance: "time to first fixation on AOI",movement: "-",data_type: "glance"},
+{reference: "2019_AccidentAnalysis_Stahl",position: "-",position_duration: "AOI: mean, max, total",position_dispersion: "-",numerosity: "AOI: long glance count",latency_distance: "-",movement: "-",data_type: "glance"},
+{reference: "2018_TRR_Li",position: "pupil diameter: mean; blink duration",position_duration: "mean; AOI: proportion",position_dispersion: "-",numerosity: "blink rate, gaze frequency",latency_distance: "-",movement: "saccade duration",data_type: "fixation"},
+{reference: "2018_TransRes_Young",position: "-",position_duration: "AOI: total, proportion",position_dispersion: "-",numerosity: "-",latency_distance: "-",movement: "-",data_type: "fixation"},
+{reference: "2018_TransRes_Kraft",position: "-",position_duration: "AOI: total",position_dispersion: "-",numerosity: "long glance count",latency_distance: "-",movement: "-",data_type: "glance"},
+{reference: "2018_TransRes_Kidd",position: "-",position_duration: "AOI: total, proportion",position_dispersion: "-",numerosity: "AOI: number of glances/fixations, proportion of glances/fixations",latency_distance: "-",movement: "-",data_type: "glance"},
+{reference: "2018_TR_Vlakveld",position: "-",position_duration: "AOI: total",position_dispersion: "-",numerosity: "AOI: proportion fixated",latency_distance: "time to first fixation on AOI",movement: "-",data_type: "fixation"},
+{reference: "2018_TIV_Wang",position: "-",position_duration: "AOI: proportion",position_dispersion: "horizontal: time series, distribution; vertical: distribution",numerosity: "-",latency_distance: "-",movement: "-",data_type: "raw data"},
+{reference: "2018_TITS_Morando",position: "-",position_duration: "frequency distribution; AOI: proportion",position_dispersion: "-",numerosity: "nan",latency_distance: "-",movement: "-",data_type: "dwell, raw data"},
+{reference: "2018_NatSciReports_Shiferaw",position: "-",position_duration: "mean, std",position_dispersion: "vertical: distribution; horizontal: distribution",numerosity: "blink rate, gaze frequency",latency_distance: "-",movement: "saccade amplitude, blink duration, transition matrix/pattern",data_type: "fixation"},
+{reference: "2018_ITSC_Yang",position: "-",position_duration: "AOI: total, mean",position_dispersion: "-",numerosity: "AOI: number of glances/fixations",latency_distance: "-",movement: "-",data_type: "glance"},
+{reference: "2018_HumanFactorsErgonomics_Zahabi",position: "-",position_duration: "AOI: max",position_dispersion: "-",numerosity: "AOI: proportion of glances/fixations",latency_distance: "-",movement: "-",data_type: "fixation, glance"},
+{reference: "2018_HumanFactors_Victor",position: "-",position_duration: "AOI: total, max, proportion",position_dispersion: "-",numerosity: "AOI: percent long glances, gaze frequency",latency_distance: "-",movement: "-",data_type: "glance"},
+{reference: "2018_HumanFactors_Robbins",position: "-",position_duration: "AOI: mean, proportion",position_dispersion: "-",numerosity: "AOI: proportion of glances/fixations",latency_distance: "-",movement: "-",data_type: "fixation"},
+{reference: "2018_Ergonomics_Costa",position: "-",position_duration: "-",position_dispersion: "-",numerosity: "-",latency_distance: "distance to target/AOI",movement: "-",data_type: "fixation"},
+{reference: "2018_AppliedErgonomics_Zahabi",position: "-",position_duration: "AOI: max",position_dispersion: "-",numerosity: "AOI: proportion of glances/fixations",latency_distance: "-",movement: "-",data_type: "fixation, glance"},
+{reference: "2018_AppliedErgonomics_Costa",position: "-",position_duration: "AOI: mean",position_dispersion: "-",numerosity: "-",latency_distance: "distance to target/AOI",movement: "-",data_type: "fixation"},
+{reference: "2018_AHAT_Feldhutter",position: "-",position_duration: "AOI: proportion",position_dispersion: "-",numerosity: "-",latency_distance: "-",movement: "-",data_type: "glance"},
+{reference: "2018_AccidentAnalysis_Sun",position: "-",position_duration: "-",position_dispersion: "-",numerosity: "AOI: gaze frequency",latency_distance: "-",movement: "-",data_type: "fixation"},
+{reference: "2018_AccidentAnalysis_Lee",position: "-",position_duration: "AOI: total, mean",position_dispersion: "-",numerosity: "AOI: number of glances/fixations",latency_distance: "-",movement: "-",data_type: "glance"},
+{reference: "2018_AccidentAnalysis_Kircher",position: "-",position_duration: "AOI: mean, proportion",position_dispersion: "-",numerosity: "AOI: gaze frequency, number of fixations within glance, percent gaze",latency_distance: "-",movement: "-",data_type: "fixation, glance"},
+{reference: "2017_TransRes_Louw",position: "-",position_duration: "-",position_dispersion: "vertical: std; horizontal: std",numerosity: "-",latency_distance: "-",movement: "-",data_type: "raw data"},
+{reference: "2017_TrafficInjuryPrevention_Wang",position: "pupil diameter: mean, rate of change",position_duration: "AOI: mean",position_dispersion: "horizontal: std",numerosity: "number of saccades; AOI: number of glances/fixations",latency_distance: "-",movement: "saccade amplitude",data_type: "fixation"},
+{reference: "2017_SNPD_Shinohara",position: "-",position_duration: "AOI: total",position_dispersion: "-",numerosity: "-",latency_distance: "-",movement: "-",data_type: "fixation"},
+{reference: "2017_PONE_VanLeeuwen",position: "-",position_duration: "-",position_dispersion: "horizontal: deviation from TP",numerosity: "-",latency_distance: "-",movement: "-",data_type: "raw data"},
+{reference: "2017_JSR_Wang",position: "-",position_duration: "AOI: mean",position_dispersion: "-",numerosity: "-",latency_distance: "-",movement: "transition matrix/pattern, entropy rate",data_type: "glance"},
+{reference: "2017_DrivingAssessmentConference_Yamani",position: "-",position_duration: "-",position_dispersion: "-",numerosity: "AOI: proportion fixated",latency_distance: "-",movement: "-",data_type: "glance"},
+{reference: "2017_CHB_Stenberger",position: "-",position_duration: "-",position_dispersion: "-",numerosity: "percent long glances, percent short glances",latency_distance: "-",movement: "-",data_type: "glance"},
+{reference: "2017_AutoUI_Shinohara",position: "-",position_duration: "mean; AOI: mean, total",position_dispersion: "-",numerosity: "number of glances/fixations; AOI: number of glances/fixations",latency_distance: "-",movement: "-",data_type: "fixation"},
+{reference: "2017_AppliedErgonomics_Zahabi",position: "-",position_duration: "AOI: max",position_dispersion: "-",numerosity: "AOI: proportion of glances/fixations",latency_distance: "-",movement: "-",data_type: "fixation, glance"},
+{reference: "2017_AppliedErgonomics_Ahlstrom",position: "-",position_duration: "-",position_dispersion: "-",numerosity: "-",latency_distance: "-",movement: "VTS",data_type: "glance"},
+{reference: "2017_AppErgonomics_Lu",position: "-",position_duration: "AOI: proportion",position_dispersion: "-",numerosity: "-",latency_distance: "-",movement: "-",data_type: "glance"},
+{reference: "2017_AdvErgonomics_Feldhutter",position: "-",position_duration: "AOI: total, mean, max",position_dispersion: "-",numerosity: "AOI: number of glances/fixations",latency_distance: "-",movement: "-",data_type: "glance"},
+{reference: "2017_AccidentAnalysis_Seppelt",position: "-",position_duration: "AOI: mean, total, proportion",position_dispersion: "-",numerosity: "AOI: number of glances/fixations",latency_distance: "-",movement: "-",data_type: "glance"},
+{reference: "2017_AccidentAnalysis_Clark",position: "-",position_duration: "AOI: mean",position_dispersion: "-",numerosity: "AOI: number of glances/fixations",latency_distance: "-",movement: "-",data_type: "glance"},
+{reference: "2017_AccidentAnalysis_Beanland",position: "-",position_duration: "AOI: total",position_dispersion: "-",numerosity: "AOI: proportion fixated",latency_distance: "nan",movement: "-",data_type: "fixation"},
+{reference: "2016_TransRes_Fitzpatrick",position: "-",position_duration: "-",position_dispersion: "-",numerosity: "AOI: number of glances/fixations",latency_distance: "-",movement: "-",data_type: "glance"},
+{reference: "2016_TraffInjuryPrevention_Jackson",position: "-",position_duration: "-",position_dispersion: "-",numerosity: "PERCLOS",latency_distance: "-",movement: "-",data_type: "raw data"},
+{reference: "2016_TR_Topolsek",position: "-",position_duration: "-",position_dispersion: "vertical: distribution; horizontal: distribution",numerosity: "AOI: proportion fixated",latency_distance: "-",movement: "-",data_type: "fixation"},
+{reference: "2016_TR_Stavrinos",position: "-",position_duration: "AOI: mean, proportion",position_dispersion: "-",numerosity: "AOI: long gaze count, gaze frequency",latency_distance: "-",movement: "-",data_type: "glance"},
+{reference: "2016_PLOS_Yan",position: "-",position_duration: "AOI: total, mean",position_dispersion: "-",numerosity: "AOI: number of glances/fixations",latency_distance: "-",movement: "-",data_type: "fixation, glance"},
+{reference: "2016_PLOS_Yamani",position: "-",position_duration: "AOI: total",position_dispersion: "-",numerosity: "AOI: proportion of glances/fixations",latency_distance: "-",movement: "-",data_type: "glance"},
+{reference: "2016_PLOS_Cheng",position: "-",position_duration: "AOI: mean, proportion",position_dispersion: "-",numerosity: "AOI: proportion of glances/fixations; percent saccade duration",latency_distance: "-",movement: "saccade duration",data_type: "glance"},
+{reference: "2016_OptometryVisionScience_Lee",position: "-",position_duration: "AOI: total; before response to hazard",position_dispersion: "horizontal: variance; vertical: variance",numerosity: "gaze frequency",latency_distance: "time to first fixation on AOI",movement: "saccade amplitude",data_type: "fixation"},
+{reference: "2016_JTSS_Grippenkoven",position: "-",position_duration: "AOI: total, proportion",position_dispersion: "-",numerosity: "AOI: percent subjects",latency_distance: "-",movement: "-",data_type: "fixation"},
+{reference: "2016_JoV_Huestegge",position: "-",position_duration: "AOI: previous gaze duration",position_dispersion: "-",numerosity: "AOI: proportion fixated",latency_distance: "distance to target/AOI",movement: "-",data_type: "fixation"},
+{reference: "2016_JEMR_Sun",position: "-",position_duration: "ratio, max, min, mean",position_dispersion: "-",numerosity: "gaze frequency",latency_distance: "-",movement: "-",data_type: "fixation"},
+{reference: "2016_JARMAC_Wood",position: "pupil diameter: mean",position_duration: "AOI: mean",position_dispersion: "-",numerosity: "AOI: proportion fixated",latency_distance: "time to first fixation on AOI",movement: "-",data_type: "fixation"},
+{reference: "2016_JAR_Wilson",position: "-",position_duration: "AOI: total",position_dispersion: "-",numerosity: "AOI: proportion fixated",latency_distance: "-",movement: "-",data_type: "glance"},
+{reference: "2016_IV_Schmidt",position: "-",position_duration: "-",position_dispersion: "-",numerosity: "PERCLOS",latency_distance: "-",movement: "-",data_type: "raw data"},
+{reference: "2016_HumanFactors_Hergeth",position: "-",position_duration: "AOI: proportion",position_dispersion: "-",numerosity: "AOI: gaze frequency",latency_distance: "-",movement: "-",data_type: "glance"},
+{reference: "2016_HumanFactors_Gaspar",position: "-",position_duration: "-",position_dispersion: "-",numerosity: "-",latency_distance: "-",movement: "-",data_type: "fixation"},
+{reference: "2016_CHI_Lee",position: "-",position_duration: "AOI: total, mean",position_dispersion: "-",numerosity: "-",latency_distance: "-",movement: "-",data_type: "glance"},
+{reference: "2016_CHI_Akkil",position: "-",position_duration: "-",position_dispersion: "vertical: distribution; horizontal: distribution",numerosity: "-",latency_distance: "-",movement: "-",data_type: "raw data"},
+{reference: "2016_AutoUI_Smith",position: "-",position_duration: "AOI: total, mean",position_dispersion: "-",numerosity: "long glance count",latency_distance: "-",movement: "-",data_type: "glance"},
+{reference: "2016_AutoUI_Hurtado",position: "-",position_duration: "AOI: total, max",position_dispersion: "-",numerosity: "-",latency_distance: "-",movement: "-",data_type: "glance"},
+{reference: "2016_AutoUI_Borojeni",position: "-",position_duration: "AOI: mean",position_dispersion: "-",numerosity: "AOI: number of glances/fixations",latency_distance: "-",movement: "-",data_type: "glance"},
+{reference: "2016_AccidentAnalysis_Zeeb",position: "-",position_duration: "-",position_dispersion: "-",numerosity: "-",latency_distance: "time to first fixation on AOI",movement: "-",data_type: "glance"},
+{reference: "2016_AccidentAnalysis_Morando",position: "-",position_duration: "AOI: proportion",position_dispersion: "AOI: distribution",numerosity: "-",latency_distance: "-",movement: "-",data_type: "glance"},
+{reference: "2016_AccidentAnalysis_Kountouriotis",position: "-",position_duration: "-",position_dispersion: "horizontal: std; vertical: mean",numerosity: "-",latency_distance: "-",movement: "-",data_type: "raw data"},
+{reference: "2016_AccidentAnalysis_Kidd",position: "-",position_duration: "AOI: proportion",position_dispersion: "-",numerosity: "AOI: proportion of glances/fixations",latency_distance: "-",movement: "-",data_type: "glance"},
+{reference: "2016_AccidentAnalysis_Belyusar",position: "-",position_duration: "AOI: mean, proportion",position_dispersion: "-",numerosity: "AOI: number of glances/fixations, long glance count",latency_distance: "-",movement: "-",data_type: "glance"},
+{reference: "2015_VC_Mackenzie",position: "-",position_duration: "-",position_dispersion: "vertical: mean, std, distribution; horizontal: std, distribution",numerosity: "-",latency_distance: "time to first fixation on AOI",movement: "-",data_type: "fixation"},
+{reference: "2015_TRR_Samuel",position: "-",position_duration: "AOI: total",position_dispersion: "-",numerosity: "AOI: proportion fixated",latency_distance: "-",movement: "-",data_type: "glance"},
+{reference: "2015_TransRes_Niezgoda",position: "pupil diameter: mean, rate of change",position_duration: "mean",position_dispersion: "horizontal: std, mean; horizontal: mean, std",numerosity: "-",latency_distance: "-",movement: "blink rate",data_type: "fixation"},
+{reference: "2015_TransRes_Bargman",position: "-",position_duration: "AOI: total, proportion, distribution",position_dispersion: "-",numerosity: "-",latency_distance: "-",movement: "-",data_type: "glance"},
+{reference: "2015_TrafficInjuryPrevention_Borowsky",position: "-",position_duration: "-",position_dispersion: "-",numerosity: "AOI: proportion fixated",latency_distance: "-",movement: "-",data_type: "glance"},
+{reference: "2015_TR_Lemonnier",position: "-",position_duration: "AOI: proportion",position_dispersion: "-",numerosity: "AOI: transition rate",latency_distance: "-",movement: "transition matrix/pattern",data_type: "fixation"},
+{reference: "2015_TR_Eyraud",position: "-",position_duration: "AOI: proportion",position_dispersion: "-",numerosity: "AOI: gaze frequency",latency_distance: "-",movement: "-",data_type: "fixation"},
+{reference: "2015_PONE_Itkonen",position: "-",position_duration: "-",position_dispersion: "horizontal: deviation from TP",numerosity: "-",latency_distance: "-",movement: "saccade velocity",data_type: "fixation"},
+{reference: "2015_OPO_Lee",position: "-",position_duration: "mean; AOI: total",position_dispersion: "-",numerosity: "AOI: gaze frequency",latency_distance: "-",movement: "saccade amplitude, scanpaths",data_type: "fixation"},
+{reference: "2015_IET_Yang",position: "-",position_duration: "AOI: mean",position_dispersion: "-",numerosity: "AOI: gaze frequency",latency_distance: "-",movement: "-",data_type: "glance"},
+{reference: "2015_HumanFactors_Liang",position: "-",position_duration: "AOI: mean",position_dispersion: "-",numerosity: "-",latency_distance: "-",movement: "-",data_type: "glance"},
+{reference: "2015_Ergonomics_vanLeeuwen",position: "-",position_duration: "-",position_dispersion: "horizontal: variance, TP error, FP error, distribution; vertical: distribution",numerosity: "-",latency_distance: "-",movement: "-",data_type: "raw data"},
+{reference: "2015_DDI_Tivesten",position: "-",position_duration: "AOI: proportion",position_dispersion: "AOI: distribution",numerosity: "nan",latency_distance: "-",movement: "-",data_type: "glance"},
+{reference: "2015_BMCGeriatrics_Urwyler",position: "-",position_duration: "AOI: mean, proportion",position_dispersion: "-",numerosity: "-",latency_distance: "-",movement: "-",data_type: "fixation"},
+{reference: "2015_AppliedErgonomics_Kaber",position: "-",position_duration: "AOI: max",position_dispersion: "-",numerosity: "AOI: proportion of glances/fixations",latency_distance: "-",movement: "-",data_type: "fixation, glance"},
+{reference: "2015_AccidentAnalysis_Peng",position: "-",position_duration: "AOI: total, max, proportion",position_dispersion: "-",numerosity: "AOI: long glance count",latency_distance: "-",movement: "-",data_type: "glance"},
+{reference: "2014_TransRes_vanLeeuwen",position: "-",position_duration: "-",position_dispersion: "vertical: distribution",numerosity: "-",latency_distance: "-",movement: "-",data_type: "fixation"},
+{reference: "2014_TransRes_Tivesten",position: "-",position_duration: "AOI: total, proportion",position_dispersion: "-",numerosity: "AOI: number of glances/fixations, percent long glances",latency_distance: "-",movement: "-",data_type: "glance"},
+{reference: "2014_TransRes_Costa",position: "-",position_duration: "AOI: mean",position_dispersion: "-",numerosity: "AOI: proportion fixated; AOI: gaze frequency",latency_distance: "-",movement: "-",data_type: "fixation"},
+{reference: "2014_TransRes_Ciceri",position: "-",position_duration: "AOI: mean, std",position_dispersion: "vertical: std, mean; horizontal: mean, std",numerosity: "AOI: number of glances/fixations",latency_distance: "-",movement: "scanpaths",data_type: "fixation"},
+{reference: "2014_TransRes_Birrell",position: "-",position_duration: "AOI: total, max, proportion, distribution",position_dispersion: "-",numerosity: "AOI: number of glances/fixations, proportion of glances/fixations, long glance count",latency_distance: "-",movement: "transition matrix/pattern",data_type: "glance"},
+{reference: "2014_TR_Reimer",position: "-",position_duration: "AOI: proportion",position_dispersion: "-",numerosity: "AOI: number long glances, number of glances/fixations",latency_distance: "-",movement: "-",data_type: "glance"},
+{reference: "2014_TR_Merat",position: "-",position_duration: "AOI: proportion",position_dispersion: "-",numerosity: "-",latency_distance: "-",movement: "-",data_type: "fixation"},
+{reference: "2014_TR_Alberti",position: "-",position_duration: "-",position_dispersion: "horizontal: std",numerosity: "-",latency_distance: "-",movement: "-",data_type: "fixation"},
+{reference: "2014_SafetyScience_Young",position: "-",position_duration: "AOI: mean, proportion",position_dispersion: "-",numerosity: "AOI: gaze frequency",latency_distance: "-",movement: "-",data_type: "glance"},
+{reference: "2014_SafetyScience_Lemercier",position: "pupil diameter: mean",position_duration: "-",position_dispersion: "-",numerosity: "-",latency_distance: "-",movement: "-",data_type: "raw data"},
+{reference: "2014_JEMR_Lemonnier",position: "-",position_duration: "mean",position_dispersion: "-",numerosity: "-",latency_distance: "-",movement: "saccade amplitude",data_type: "fixation"},
+{reference: "2014_JAH_SimonsMorton",position: "-",position_duration: "AOI: total, max",position_dispersion: "-",numerosity: "-",latency_distance: "-",movement: "-",data_type: "glance"},
+{reference: "2014_HumanFactorsErognomics_Lorenz",position: "-",position_duration: "-",position_dispersion: "-",numerosity: "-",latency_distance: "time to first fixation on AOI",movement: "-",data_type: "raw data"},
+{reference: "2014_HumanFactorsErgonomics_Schieber",position: "-",position_duration: "AOI: mean",position_dispersion: "-",numerosity: "AOI: number of glances/fixations",latency_distance: "-",movement: "-",data_type: "glance"},
+{reference: "2014_HumanFactors_He",position: "-",position_duration: "-",position_dispersion: "vertical: std, mean; horizontal: mean, std",numerosity: "-",latency_distance: "-",movement: "-",data_type: "fixation"},
+{reference: "2014_HFES_Liang",position: "-",position_duration: "AOI: total, distribution",position_dispersion: "-",numerosity: "-",latency_distance: "-",movement: "-",data_type: "glance"},
+{reference: "2014_CogTechWork_Werneke",position: "-",position_duration: "AOI: mean, proportion",position_dispersion: "-",numerosity: "-",latency_distance: "-",movement: "-",data_type: "raw data"},
+{reference: "2014_ACM_Reimer",position: "-",position_duration: "AOI: total, mean, proportion",position_dispersion: "-",numerosity: "percent long glances; AOI: number of glances/fixations",latency_distance: "-",movement: "-",data_type: "glance"},
+{reference: "2014_AccidentPrevention_Jones",position: "-",position_duration: "mean",position_dispersion: "vertical: std; horizontal: std",numerosity: "-",latency_distance: "-",movement: "-",data_type: "fixation"},
+{reference: "2014_AccidentAnalysis_Lehtonen",position: "-",position_duration: "AOI: mean, std, proportion",position_dispersion: "horizontal: std; vertical: std: deviation from: reference",numerosity: "-",latency_distance: "-",movement: "-",data_type: "fixation"},
+{reference: "2013_TransRes_Benedetto",position: "-",position_duration: "-",position_dispersion: "horizontal: std; vertical: std",numerosity: "number of transitions, proportion of transitions",latency_distance: "-",movement: "-",data_type: "fixation"},
+{reference: "2013_TransportRes_Savage",position: "blink duration",position_duration: "mean, std",position_dispersion: "vertical: mean, std; horizontal: mean, std",numerosity: "blink rate",latency_distance: "nan",movement: "saccade amplitude, saccade velocity",data_type: "fixation"},
+{reference: "2013_TrafficInjuryPrevention_Dukic",position: "-",position_duration: "AOI: total, max, proportion",position_dispersion: "-",numerosity: "AOI: number of glances/fixations",latency_distance: "-",movement: "-",data_type: "fixation"},
+{reference: "2013_TR_Romoser",position: "-",position_duration: "AOI: mean, std",position_dispersion: "-",numerosity: "-",latency_distance: "-",movement: "-",data_type: "glance"},
+{reference: "2013_TR_Lim",position: "-",position_duration: "mean before hazard onset, mean after hazard onset",position_dispersion: "-",numerosity: "-",latency_distance: "time to first fixation on AOI",movement: "-",data_type: "fixation"},
+{reference: "2013_TR_Jamson",position: "-",position_duration: "AOI: proportion",position_dispersion: "-",numerosity: "PERCLOS",latency_distance: "-",movement: "-",data_type: "fixation"},
+{reference: "2013_TITS_Yekhshatyan",position: "-",position_duration: "nan",position_dispersion: "horizontal: time series",numerosity: "-",latency_distance: "-",movement: "-",data_type: "raw data"},
+{reference: "2013_TITS_Ahlstrom",position: "-",position_duration: "AOI: total, max, proportion",position_dispersion: "-",numerosity: "AOI: long glance count",latency_distance: "-",movement: "-",data_type: "glance"},
+{reference: "2013_SafetyResearch_Scott",position: "-",position_duration: "-",position_dispersion: "-",numerosity: "AOI: gaze frequency",latency_distance: "-",movement: "transition matrix/pattern",data_type: "fixation"},
+{reference: "2013_PUC_Kujala",position: "-",position_duration: "AOI: total, max, mean",position_dispersion: "-",numerosity: "long glance count",latency_distance: "-",movement: "-",data_type: "glance"},
+{reference: "2013_JoV_Lappi",position: "-",position_duration: "-",position_dispersion: "-",numerosity: "AOI: proportion of glances/fixations",latency_distance: "-",movement: "-",data_type: "raw data"},
+{reference: "2013_Ergonomics_Lehtonen",position: "-",position_duration: "AOI: proportion",position_dispersion: "-",numerosity: "AOI: gaze frequency",latency_distance: "-",movement: "-",data_type: "fixation"},
+{reference: "2013_AppliedErgonomics_Zhang",position: "-",position_duration: "AOI: max",position_dispersion: "-",numerosity: "AOI: proportion of glances/fixations",latency_distance: "-",movement: "-",data_type: "glance"},
+{reference: "2013_ACP_Garrison",position: "-",position_duration: "mean; AOI: mean",position_dispersion: "-",numerosity: "AOI: proportion fixated",latency_distance: "-",movement: "-",data_type: "fixation"},
+{reference: "2013_AccidentPrevention_Wong",position: "-",position_duration: "AOI: mean, max, std",position_dispersion: "-",numerosity: "AOI: proportion of glances/fixations",latency_distance: "-",movement: "renewal cycle",data_type: "glance"},
+{reference: "2013_AccidentAnalysis_Peng",position: "-",position_duration: "AOI: mean",position_dispersion: "-",numerosity: "percent long glances",latency_distance: "-",movement: "-",data_type: "glance"},
+{reference: "2013_AccidentAnalysis_Dozza",position: "-",position_duration: "AOI: proportion",position_dispersion: "-",numerosity: "-",latency_distance: "-",movement: "-",data_type: "glance"},
+{reference: "2013_AccidentAnalysis_Borowsky",position: "-",position_duration: "-",position_dispersion: "vertical: std; horizontal: std",numerosity: "-",latency_distance: "-",movement: "-",data_type: "fixation"},
+{reference: "2012_TRR_Divekar",position: "-",position_duration: "AOI: max",position_dispersion: "-",numerosity: "percent long glances; AOI: proportion fixated, number of glances/fixations",latency_distance: "-",movement: "-",data_type: "glance"},
+{reference: "2012_TR_Kaber",position: "-",position_duration: "AOI: mean",position_dispersion: "-",numerosity: "AOI: gaze frequency",latency_distance: "-",movement: "-",data_type: "glance"},
+{reference: "2012_SAE_Kim",position: "-",position_duration: "AOI: total, mean, proportion",position_dispersion: "-",numerosity: "-",latency_distance: "-",movement: "-",data_type: "fixation"},
+{reference: "2012_PLOS_Mars",position: "-",position_duration: "-",position_dispersion: "horizontal: deviation from TP",numerosity: "-",latency_distance: "-",movement: "-",data_type: "raw data"},
+{reference: "2012_JoV_Sullivan",position: "nan",position_duration: "AOI: mean",position_dispersion: "-",numerosity: "AOI: proportion of glances/fixations",latency_distance: "-",movement: "saccade duration",data_type: "fixation"},
+{reference: "2012_JoV_Doshi",position: "nan",position_duration: "-",position_dispersion: "horizontal: std; horizontal: max",numerosity: "-",latency_distance: "saccadic latency",movement: "saccade duration",data_type: "raw data"},
+{reference: "2012_HumanFactors_Reimer",position: "-",position_duration: "-",position_dispersion: "horizontal: std, mean, range; vertical: std, mean",numerosity: "-",latency_distance: "-",movement: "-",data_type: "raw data"},
+{reference: "2012_HumanFactors_Lee",position: "-",position_duration: "AOI: mean",position_dispersion: "-",numerosity: "AOI: number of glances/fixations",latency_distance: "-",movement: "-",data_type: "glance"},
+{reference: "2012_ACM_Pomarjanschi",position: "-",position_duration: "-",position_dispersion: "horizontal: deviation from screen center",numerosity: "-",latency_distance: "time to first fixation on AOI",movement: "-",data_type: "raw data"},
+{reference: "2012_AccidentAnalysis_Werneke",position: "-",position_duration: "-",position_dispersion: "-",numerosity: "AOI: gaze frequency, proportion of glances/fixations",latency_distance: "-",movement: "-",data_type: "glance"},
+{reference: "2012_AccidentAnalysis_Crundall_1",position: "-",position_duration: "AOI: proportion",position_dispersion: "-",numerosity: "AOI: proportion fixated",latency_distance: "time to first fixation on AOI",movement: "-",data_type: "fixation"},
+{reference: "2012_AccidentAnalysis_Crundall",position: "-",position_duration: "AOI: mean, first gaze",position_dispersion: "horizontal: eccentricity",numerosity: "-",latency_distance: "time to first fixation on AOI",movement: "-",data_type: "fixation"},
+{reference: "2012_AccidentAnalysis_Borowsky",position: "-",position_duration: "AOI: total, mean",position_dispersion: "-",numerosity: "AOI: proportion fixated; AOI: proportion of glances/fixations",latency_distance: "-",movement: "-",data_type: "fixation"},
+{reference: "2011_VR_Underwood",position: "-",position_duration: "AOI: mean, previous gaze duration",position_dispersion: "-",numerosity: "AOI: number of glances/fixations",latency_distance: "-",movement: "-",data_type: "fixation"},
+{reference: "2011_TransRes_Vkalveld",position: "-",position_duration: "-",position_dispersion: "-",numerosity: "AOI: proportion fixated",latency_distance: "-",movement: "-",data_type: "fixation"},
+{reference: "2011_TR_Metz",position: "-",position_duration: "AOI: mean, proportion",position_dispersion: "horizontal: std, mean",numerosity: "-",latency_distance: "-",movement: "-",data_type: "fixation, glance"},
+{reference: "2011_TR_Briggs",position: "-",position_duration: "-",position_dispersion: "vertical: variance; horizontal: variance",numerosity: "number of glances/fixations",latency_distance: "-",movement: "-",data_type: "fixation"},
+{reference: "2011_DrivSymposium_Taylor",position: "-",position_duration: "-",position_dispersion: "-",numerosity: "AOI: proportion fixated",latency_distance: "-",movement: "-",data_type: "raw data"},
+{reference: "2011_CTW_Nabatilan",position: "-",position_duration: "AOI: proportion",position_dispersion: "-",numerosity: "-",latency_distance: "-",movement: "-",data_type: "fixation"},
+{reference: "2011_AppliedErgonomics_Edquist",position: "-",position_duration: "-",position_dispersion: "-",numerosity: "-",latency_distance: "-",movement: "-",data_type: "fixation"},
+{reference: "2011_AccidentAnalysis_Owens",position: "-",position_duration: "AOI: total, max",position_dispersion: "-",numerosity: "AOI: number of glances/fixations",latency_distance: "-",movement: "-",data_type: "glance"},
+{reference: "2011_AccidentAnalysis_Andersen",position: "-",position_duration: "-",position_dispersion: "std relative to LV center",numerosity: "-",latency_distance: "-",movement: "-",data_type: "fixation"},
+{reference: "2010_TransEng_Bonmez",position: "-",position_duration: "AOI: mean",position_dispersion: "-",numerosity: "AOI: gaze frequency",latency_distance: "-",movement: "-",data_type: "glance"},
+{reference: "2010_TR_Klauer",position: "-",position_duration: "AOI: total, proportion",position_dispersion: "-",numerosity: "-",latency_distance: "-",movement: "-",data_type: "glance"},
+{reference: "2010_TR_Huestegge",position: "-",position_duration: "mean, std",position_dispersion: "-",numerosity: "number of glances/fixations; AOI: proportion fixated",latency_distance: "time to first fixation on AOI",movement: "saccade amplitude",data_type: "fixation"},
+{reference: "2010_Perception_vanLoon",position: "-",position_duration: "AOI: mean, std, total; mean, std",position_dispersion: "horizontal: std; vertical: std",numerosity: "-",latency_distance: "-",movement: "scanpaths",data_type: "fixation"},
+{reference: "2010_HumanFactorsErgonomics_Reimer",position: "-",position_duration: "-",position_dispersion: "horizontal: std, mean; horizontal: mean, std",numerosity: "-",latency_distance: "-",movement: "-",data_type: "raw data"},
+{reference: "2010_HumanFactors_Cooper",position: "-",position_duration: "-",position_dispersion: "-",numerosity: "-",latency_distance: "-",movement: "-",data_type: "-"},
+{reference: "2010_CHI_Jensen",position: "-",position_duration: "-",position_dispersion: "-",numerosity: "AOI: long gaze count",latency_distance: "-",movement: "-",data_type: "glance"},
+{reference: "2010_AccidentAnalysis_White",position: "-",position_duration: "-",position_dispersion: "-",numerosity: "AOI: proportion fixated",latency_distance: "-",movement: "-",data_type: "fixation"},
+{reference: "2010_AccidentAnalysis_Konstantopoulos",position: "pupil diameter: mean",position_duration: "mean",position_dispersion: "vertical: mean, std; horizontal: mean, std",numerosity: "number of glances/fixations; AOI: number of glances/fixations",latency_distance: "-",movement: "-",data_type: "fixation"},
+{reference: "2010_AccidentAnalysis_Borowsky",position: "-",position_duration: "mean",position_dispersion: "horizontal: mean",numerosity: "-",latency_distance: "-",movement: "-",data_type: "fixation"},
+	];
+
+	var table = new Tabulator("#example-table", {
+		height:1000, // set height of table to enable virtual DOM
+		data:tabledata, //load initial data into table
+		layout:"fitColumns", //fit columns to width of table (optional)
+		columns:[ //Define Table Columns
+			{title:"Reference", field:"reference", sorter:"string"},
+			{title:"Position", field:"position", sorter:"string"},
+			{title:"Position<br>duration", field:"position_duration", sorter:"string"},
+			{title:"Position<br>dispersion", field:"position_dispersion", sorter:"string"},
+			{title:"Numerosity", field:"numerosity", sorter:"string"},
+			{title:"Latency/<br>distance", field:"latency_distance", sorter: "string"},
+			{title:"Movement", field:"movement", sorter: "string"}
+		],
+	});
+</script>
+	</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link href="assets/css/tabulator/4.9/tabulator.min.css" rel="stylesheet">
+		<link href="assets/css/tables.css" rel="stylesheet">
+	</head>
+
+
+	<body>
+
+  <!-- Top navigation -->
+<div class="topnav">
+
+<a href="https://github.com/ykotseruba/attention_and_driving">Back to Github</a>
+<a href="behavioral_studies.html">Behavioral</a>
+<a href="#" class="active">Practical</a>
+<a href="datasets_datasets.html">Datasets</a>
+<a href="surveys_surveys.html">Surveys</a>
+
+
+</div> 
+
+<div class="topnav">
+
+<a href="practical_scene_gaze.html">Scene gaze</a>
+<a href="practical_in_vehicle_gaze.html">In-vehicle gaze</a>
+<a href="#" class="active">Inattention detection</a>
+<a href="practical_driver_awareness.html">Driver awareness</a>
+<a href="practical_self_driving.html">Self-driving</a>
+<a href="practical_factors.html">Factors</a>
+
+
+</div> 
+
+		<div id="example-table"></div>
+						<script type="text/javascript" src="assets/js/tabulator/4.9/tabulator.min.js"></script>
+		<script type="text/javascript">
+	//sample data
+	var tabledata = [
+	{reference: "2019_TMC_Fan",title: "GazMon: Eye Gazing Enabled Driving Behavior Monitoring and Prediction",venue: "IEEE Transactions on Mobile Computing",year: "2019",inattention_type: "VD, VMD, CD",observation: "1-5s",input: "RGB",output: "distraction type (1-8s into future, normal, using phone reaching, eating)",dataset: "custom: on-road, sim",metrics: "precision, recall, F-score, accuracy",features: "Facial landmarks, head pose, iris center",pipeline: "FE → LSTM"},
+{reference: "2019_T-ITS_Chiou",title: "Driver Monitoring Using Sparse Representation With Part-Based Temporal Face Descriptors",venue: "T-ITS",year: "2019",inattention_type: "VD, VMD, CD, DR",observation: "1, 2, 4, 8, 16 frames",input: "RGB",output: "driver status, distraction type",dataset: "custom: on-road, YawDD, DDD",metrics: "specificity, sensitivity, accuracy, f-score.",features: "nan",pipeline: "Feature extraction, TD"},
+{reference: "2019_IEEEAccess_Zhang",title: "Driver Drowsiness Detection using Multi-Channel Second Order Blind Identifications",venue: "IEEE Access",year: "2019",inattention_type: "DR",observation: "10s",input: "RGB, PS",output: "driver status",dataset: "custom: on-road",metrics: "specificity, sensitivity, accuracy, f-score.",features: "nan",pipeline: "Feature extraction, TD"},
+{reference: "2019_IEEEAccess_Deng",title: "Real-Time Driver-Drowsiness Detection System Using Facial Features",venue: "IEEE Access",year: "2019",inattention_type: "DR",observation: "60s",input: "RGB",output: "driver status",dataset: "custom: on-road",metrics: "precision, accuracy",features: "nan",pipeline: "Feature extraction, CNN, TD"},
+{reference: "2018_T-ITS_Yu",title: "Driver Drowsiness Detection Using Condition-Adaptive Representation Learning Framework",venue: "T-ITS",year: "2018",inattention_type: "DR",observation: "5 frames",input: "NIR",output: "driver status",dataset: "DDD",metrics: "ROC, precision, detection rate, F-score",features: "nan",pipeline: "CNN"},
+{reference: "2018_IROS_Wang",title: "Real-Time Workload Classification during Driving using HyperNetworks",venue: "IROS",year: "2018",inattention_type: "CD",observation: "5, 10, 15s",input: "GC",output: "driver status",dataset: "custom: sim",metrics: "F-score, Precision, Recall",features: "augmented eye-tracking features",pipeline: "LSTM"},
+{reference: "2017_IET_Zhao",title: "Driver drowsiness detection using facial dynamic fusion information and a DBN",venue: "IET Intelligent Transport Systems",year: "2017",inattention_type: "DR",observation: "1s",input: "RGB",output: "driver status",dataset: "custom: on-road",metrics: "Accuracy",features: "nan",pipeline: "Feature extraction, DBN"},
+{reference: "2017_ACCV_Weng",title: "Driver Drowsiness Detection via a Hierarchical Temporal Deep Belief Network",venue: "ACCV",year: "2017",inattention_type: "DR",observation: "300 frames",input: "NIR",output: "driver status",dataset: "DDD",metrics: "F-score, Accuracy",features: "nan",pipeline: "Feature extraction, DBN"},
+{reference: "2017_ACCV_Shih",title: "MSTN: Multistage Spatial-Temporal Network for Driver Drowsiness Detection",venue: "ACCV",year: "2017",inattention_type: "DR",observation: "50 frames",input: "NIR",output: "driver status",dataset: "DDD",metrics: "F-score, Accuracy",features: "nan",pipeline: "Feature extraction, CNN, LSTM"},
+{reference: "2016_TransRes_Munoz",title: "Distinguishing patterns in drivers’ visual attention allocation using Hidden Markov Models",venue: "Transportation Research Part F",year: "2016",inattention_type: "VMD, CD",observation: "-",input: "glance location and duration",output: "driver status",dataset: "custom: on-road",metrics: "average accuracy",features: "nan",pipeline: "nan"},
+{reference: "2016_T-ITS_Liao",title: "Detection of Driver Cognitive Distraction: A Comparison Study of Stop-Controlled Intersection and Speed-Limited Highway",venue: "T-ITS",year: "2016",inattention_type: "CD",observation: "-",input: "EV, GC",output: "driver status",dataset: "custom: sim",metrics: "DR, F1",features: "fixation duration, saccade frequency, pupil diameter, statistical features",pipeline: "SVM"},
+{reference: "2016_T-ITS_Li",title: "Detecting Drivers’ Mirror-Checking Actions and Its Application to Maneuver and Secondary Task Recognition",venue: "T-ITS",year: "2016",inattention_type: "VD, VMD, CD",observation: "2, 5s",input: "RGB*, EV",output: "distraction type (radio, GPS-following, Phone, picture, conversation)",dataset: "custom: on-road",metrics: "F1",features: "Head pose, face action units, glance locations (eyes off road), blink frequency",pipeline: "FE → RB"},
+{reference: "2016_IV_Liao",title: "Detection of Driver Cognitive Distraction: A Comparison Study of Stop-Controlled Intersection and Speed-Limited Highway",venue: "IV",year: "2016",inattention_type: "CD",observation: "2s, 5s",input: "EV, GC, HP",output: "driver status",dataset: "custom: sim",metrics: "DR, F1",features: "statistical features",pipeline: "SVM"},
+{reference: "2016_HumanFactors_Zhang",title: "Evaluation of Strategies for Integrated Classification of Visual-Manual and Cognitive Distractions in Driving",venue: "Human Factors",year: "2016",inattention_type: "VMD, CD",observation: "-",input: "gaze attributes, driving performance, SA measures",output: "driver status",dataset: "custom: sim",metrics: "accuracy, FP",features: "nan",pipeline: "nan"},
+{reference: "2016_ApplSci_Choi",title: "Tracking a Driver’s Face against Extreme Head Poses and Inference of Drowsiness Using a Hidden Markov Model",venue: "Applied Sciences",year: "2016",inattention_type: "DR",observation: "15 frames",input: "RGB",output: "driver status",dataset: "custom: on-road",metrics: "qualitative",features: "nan",pipeline: "Feature extraction, HMM"},
+{reference: "2016_AccidentAnalysis_Wang",title: "Driver drowsiness detection based on non-intrusive metrics considering individual specifics",venue: "Accident Analysis and Prevention",year: "2016",inattention_type: "DR",observation: "60s",input: "EV, BL, EC",output: "driver status",dataset: "custom: sim",metrics: "accuracy",features: "blink frequency, blink duration, PERCLOS, pupil",pipeline: "LR, MLP"},
+{reference: "2015_T-ITS_Liu",title: "Driver Distraction Detection Using Semi-Supervised Machine Learning",venue: "T-ITS",year: "2015",inattention_type: "CD",observation: "10s",input: "HP, GC",output: "driver status",dataset: "custom: on-road",metrics: "specificity, sensitivity, accuracy, f-score.",features: "nan",pipeline: "SVM"},
+{reference: "2015_T-ITS_Li",title: "Predicting Perceived Visual and Cognitive Distractions of Drivers With Multimodal Features",venue: "T-ITS",year: "2015",inattention_type: "VD, VMD, CD",observation: "10s",input: "RGB, EV",output: "distraction type",dataset: "custom: on-road",metrics: "precision, recall, F",features: "nan",pipeline: "Feature extraction, BC"},
+{reference: "2013_T-ITS_Mbouna",title: "Visual Analysis of Eye State and Head Pose for Driver Alertness Monitoring",venue: "T-ITS",year: "2013",inattention_type: "D, DR",observation: "120 frames",input: "RGB",output: "driver status",dataset: "custom: on-road",metrics: "TP, FP, FN, TN",features: "nan",pipeline: "Feature extraction, SVM"},
+{reference: "2013_IJVT_Sigari",title: "A Driver Face Monitoring System for Fatigue andDistraction Detection",venue: "International Journal of Vehicular Technology",year: "2013",inattention_type: "D",observation: "1 frame",input: "RGB",output: "driver status",dataset: "custom: sim, on-road",metrics: "FPR, FNR, precision",features: "nan",pipeline: "nan"},
+{reference: "2013_AdvMechEng_Jin",title: "Driver Sleepiness Detection System Based onEye Movements Variables",venue: "Advances in Mechanical Engineering",year: "2013",inattention_type: "DR",observation: "10s",input: "EC, GC",output: "driver status",dataset: "custom: sim",metrics: "Accuracy",features: "PERCLOS, gaze direction, fixation time",pipeline: "SVM"},
+{reference: "2012_T-ITS_Jimenez",title: "Gaze Fixation System for the Evaluation of Driver Distractions Induced by IVIS",venue: "T-ITS",year: "2012",inattention_type: "VMD, CD",observation: "1 frame",input: "NIR",output: "driver status",dataset: "custom: sim",metrics: "qualitative",features: "facial landmarks, head pos",pipeline: "nan"},
+{reference: "2012_ITSC_Hirayama",title: "Detection of Driver Distraction based on Temporal Relationshipbetween Eye-Gaze and Peripheral Vehicle Behavior",venue: "ITSC",year: "2012",inattention_type: "CD",observation: "10s",input: "GL",output: "driver status",dataset: "custom: on-road",metrics: "accuracy",features: "nan",pipeline: "BC"},
+{reference: "2012_HumanFactors_Liang",title: "How Dangerous Is Looking Away From the Road? Algorithms Predict Crash Risk From Glance Patterns in Naturalistic Driving",venue: "Human Factors",year: "2012",inattention_type: "D",observation: "3,6,12,24s",input: "GL",output: "driver status",dataset: "100-car NDS",metrics: "correlation",features: "nan",pipeline: "LR"},
+{reference: "2011_T-ITS_Wollmer",title: "Online Driver Distraction Detection UsingLong Short-Term Memory",venue: "T-ITS",year: "2011",inattention_type: "VMD",observation: "3s",input: "EV, HR",output: "driver status",dataset: "custom: on-road",metrics: "recall, precision, accuracy, F-score",features: "nan",pipeline: "LSTM"},
+{reference: "2011_OptEng_Jo",title: "Vision-based method for detecting driver drowsiness and distraction in driver monitoring system",venue: "Optical Engineering",year: "2011",inattention_type: "D, DR",observation: "10s",input: "NIR",output: "driver status",dataset: "custom: on-road",metrics: "FP, FN",features: "nan",pipeline: "Feature extraction, TD"},
+{reference: "2011_IET_Flores",title: "Driver drowsiness detection system under infrared illumination for an intelligent vehicle",venue: "IET Intelligent Transport Systems",year: "2011",inattention_type: "D, DR",observation: "1 frame",input: "NIR",output: "driver status",dataset: "custom: on-road",metrics: "correct rate",features: "PERCLOS, head pose",pipeline: "Feature extraction, TD"},
+{reference: "2010_JCTA_Zhang",title: "A new real-time eye tracking based on nonlinear unscented Kalman filter for monitoring driver fatigue",venue: "Journal of Control Theory Applications",year: "2010",inattention_type: "DR",observation: "6m",input: "NIR",output: "driver status",dataset: "custom: on-road",metrics: "correct rate, average correct",features: "PERCLOS",pipeline: "Feature extraction, TD"},
+{reference: "2010_IV_Friedrichs",title: "Camera-based Drowsiness Reference for Driver State Classification under Real Driving Conditions",venue: "IV",year: "2010",inattention_type: "DR",observation: "5 timesteps",input: "EC, HP, EV, BL",output: "driver status",dataset: "custom: on-road",metrics: "correct rate",features: "PERCLOS (3m), microsleeps, head nod, blink frequency (1m), mean eye opening",pipeline: "MLP"},
+	];
+
+	var table = new Tabulator("#example-table", {
+		height:700, // set height of table to enable virtual DOM
+		data:tabledata, //load initial data into table
+		layout:"fitColumns", //fit columns to width of table (optional)
+		columns:[ //Define Table Columns
+			{title:"Reference", field:"reference", sorter:"string", width:150, },
+			{title:"Title", field:"title", sorter:"string", width:150},
+			{title:"Venue", field:"venue", sorter:"string", width:150},
+			{title:"Year", field:"year", sorter:"number", width:80},
+			{title:"Inattention<br>type", field:"inattention_type", sorter:"string", width: 80},
+			{title:"Observation<br>length", field:"observation", sorter: "string"},
+			{title:"Input", field:"input", sorter: "number"},
+			{title:"Output", field:"output", sorter:"string"},
+			{title:"Dataset", field:"dataset", sorter:"string"},
+			{title:"Metrics", field:"metrics", sorter: "string"},
+			{title:"Features", field:"features", sorter:"number"},
+			{title:"Pipeline", field:"pipeline", sorter: "string"},
+		],
+	});
+</script>
+	</body>
+</html>

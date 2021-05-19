@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link href="assets/css/tabulator/4.9/tabulator.min.css" rel="stylesheet">
+		<link href="assets/css/tables.css" rel="stylesheet">
+	</head>
+
+
+	<body>
+
+ <!-- Top navigation -->
+<div class="topnav">
+
+<a href="https://github.com/ykotseruba/attention_and_driving">Back to Github</a>
+<a href="behavioral_studies.html">Behavioral</a>
+<a href="practical_scene_gaze.html">Practical</a>
+<a href="#" class="active">Datasets</a>
+<a href="surveys_surveys.html">Surveys</a>
+
+
+</div> 
+
+<div class="topnav">
+
+
+
+</div> 
+
+		<div id="example-table"></div>
+						<script type="text/javascript" src="assets/js/tabulator/4.9/tabulator.min.js"></script>
+		<script type="text/javascript">
+	//sample data
+	var tabledata = [
+	{type: "Eye-tracking",dataset: "Deng et al. 2020",reference: "2020_TITS_Deng",year: "2020",link: "https://github.com/taodeng/CDNN-traffic-saliency",purpose: "normal driving",data: "RGB_S, ET",annotations: "nan",recording_conditions: "simulator: low",vehicle_control: "passive",subjects: "28",frames: "77K(estimated)",videos: "16"},
+{type: "Eye-tracking",dataset: "DADA-2020",reference: "2019_ITSC_Fang",year: "2019",link: "https://github.com/JWFangit/LOTVS-DADA",purpose: "hazard perception",data: "RGB_S, ET",annotations: "BB, TL",recording_conditions: "simulator: low",vehicle_control: "passive",subjects: "20",frames: "658K",videos: "2000"},
+{type: "Eye-tracking",dataset: "Deng et al. 2018",reference: "2018_TITS_Deng",year: "2018",link: "https://github.com/taodeng/traffic-eye-tracking-dataset",purpose: "normal driving",data: "RGB_S*, ET",annotations: "nan",recording_conditions: "simulator: low",vehicle_control: "passive",subjects: "20",frames: "100",videos: "-"},
+{type: "Eye-tracking",dataset: "DR(eye)VE",reference: "2018_PAMI_Palazzi, 2016_CVPRW_Alletto",year: "2018",link: "http://imagelab.ing.unimore.it/dreyeve",purpose: "normal driving",data: "RGB_S_ET, ET, PD, EV",annotations: "nan",recording_conditions: "on-road: directed",vehicle_control: "active",subjects: "8",frames: "555K",videos: "74"},
+{type: "Eye-tracking",dataset: "BBD-A",reference: "2018_ACCV_Xia",year: "2018",link: "https://bdd-data.berkeley.edu/",purpose: "hazard perception",data: "RGB_S, ET",annotations: "nan",recording_conditions: "simulator: low",vehicle_control: "passive",subjects: "45",frames: "378K (estimate)",videos: "1232"},
+{type: "Eye-tracking",dataset: "Taamneh et al.",reference: "2017_NatSciData_Taamneh",year: "2017",link: "https://osf.io/c42cn/",purpose: "secondary tasks",data: "RGB_S, ET, PS",annotations: "nan",recording_conditions: "simulator: low",vehicle_control: "active",subjects: "68",frames: "-",videos: "456"},
+{type: "Eye-tracking",dataset: "Deng et al. 2016",reference: "2016_TITS_Deng",year: "2016",link: "https://github.com/taodeng/Top-down-based-traffic-driving-saliency-model",purpose: "normal driving",data: "RGB_S*, ET",annotations: "nan",recording_conditions: "simulator: low",vehicle_control: "passive",subjects: "40",frames: "100",videos: "nan"},
+{type: "Eye-tracking",dataset: "USC Video Games",reference: "2011_BMVC_Borji",year: "2011",link: "http://ilab.usc.edu/borji/videos/3DDS-data.zip, http://ilab.usc.edu/borji/videos/3DDS-video.zip, http://ilab.usc.edu/borji/videos/realTagResult.zip",purpose: "normal driving",data: "RGB_S, ET",annotations: "nan",recording_conditions: "simulator: low",vehicle_control: "active",subjects: "10",frames: "192K",videos: "108"},
+{type: "Eye-tracking",dataset: "DIPLECS Sweden",reference: "2010_ACCV_Pugeault",year: "2010",link: "https://cvssp.org/data/diplecs/",purpose: "normal driving",data: "RGB_S, ET, EV",annotations: "TL",recording_conditions: "on-road: naturalistic",vehicle_control: "active",subjects: "1",frames: "159K",videos: "1"},
+{type: "Other",dataset: "Drive&Act",reference: "2019_ICCV_Martin",year: "2019",link: "https://www.driveandact.com/",purpose: "driver monitoring",data: "RGB_S",annotations: "SM, TL",recording_conditions: "simulator: low",vehicle_control: "active",subjects: "15",frames: "9.6M",videos: "29"},
+{type: "Other",dataset: "HAD",reference: "2019_CVPR_Kim",year: "2019",link: "https://usa.honda-ri.com/HAD",purpose: "normal driving",data: "RGB_S, EV",annotations: "TL",recording_conditions: "simulator: low",vehicle_control: "passive",subjects: "-",frames: "3.4M (estimate)",videos: "5675"},
+{type: "Other",dataset: "BBD-X",reference: "2018_ECCV_Kim",year: "2018",link: "https://github.com/JinkyuKimUCB/BDD-X-dataset",purpose: "normal driving",data: "RGB_S, EV",annotations: "TL",recording_conditions: "simulator: low",vehicle_control: "passive",subjects: "-",frames: "8.4M",videos: "6984"},
+{type: "Other",dataset: "HDD",reference: "2018_CVPR_Ramanishka",year: "2018",link: "https://usa.honda-ri.com/HDD",purpose: "normal driving",data: "RGB_S, EV",annotations: "BB, TL",recording_conditions: "simulator: low",vehicle_control: "passive",subjects: "-",frames: "1.2M (estimate)",videos: "137"},
+{type: "Other",dataset: "DDD",reference: "2017_ACCV_Weng",year: "2017",link: "http://cv.cs.nthu.edu.tw/php/callforpaper/datasets/DDD/",purpose: "driver monitoring",data: "RGB_D, NIR_D",annotations: "TL",recording_conditions: "simulator: low",vehicle_control: "active",subjects: "36",frames: "486K (estimate)",videos: "360"},
+{type: "Other",dataset: "DAD",reference: "2016_ACCV_Chan",year: "2016",link: "https://aliensunmin.github.io/project/dashcam/",purpose: "hazard perception",data: "RGB_S",annotations: "BB, TL",recording_conditions: "simulator: low",vehicle_control: "passive",subjects: "-",frames: "-",videos: "678"},
+{type: "Other",dataset: "Brain4Cars",reference: "2015_ICCV_Jain",year: "2016",link: "https://github.com/asheshjain399/ICCV2015_Brain4Cars",purpose: "driver monitoring",data: "RGB_S, RGB_D, EV",annotations: "TL",recording_conditions: "on-road: naturalistic",vehicle_control: "active",subjects: "10",frames: "2M",videos: "-"},
+{type: "Other",dataset: "DIPLECS Surrey",reference: "2015_TranVehTech_Pugeault",year: "2015",link: "https://cvssp.org/data/diplecs/",purpose: "normal driving",data: "RGB_S, EV",annotations: "nan",recording_conditions: "on-road: naturalistic",vehicle_control: "active",subjects: "1",frames: "54K(estimate)",videos: "1"},
+{type: "Other",dataset: "YawDD",reference: "2014_ACM_Abtahi",year: "2014",link: "https://ieee-dataport.org/open-access/yawdd-yawning-detection-dataset",purpose: "driver monitoring",data: "RGB_D",annotations: "TL, BB",recording_conditions: "on-road: stationary",vehicle_control: "passive",subjects: "107",frames: "-",videos: "342"},
+{type: "Other",dataset: "KITTI",reference: "2013_CVPR_Geiger, Geiger2012CVPR",year: "2012",link: "http://www.cvlibs.net/datasets/kitti/",purpose: "normal driving",data: "RGB_D, EV",annotations: "SM, BB, TL",recording_conditions: "on-road: directed",vehicle_control: "active",subjects: "-",frames: "-",videos: "-"},
+{type: "NDS/FOT",dataset: "EOR-FOT",reference: "2013_TechRep_Karlsson",year: "2014-2015",link: "-",purpose: "driver monitoring",data: "RGB_S, RGB_D, ET, EV",annotations: "nan",recording_conditions: "on-road: naturalistic",vehicle_control: "active",subjects: "10",frames: "-",videos: "-"},
+{type: "NDS/FOT",dataset: "euroFOT",reference: "2012_TechRep_Kessler",year: "2008-2012",link: "https://www.eurofot-ip.eu",purpose: "normal driving",data: "RGB_S, RGB_D, ET",annotations: "nan",recording_conditions: "on-road: naturalistic",vehicle_control: "active",subjects: "1200",frames: "-",videos: "-"},
+{type: "NDS/FOT",dataset: "100-Car",reference: "2005_TechRep_Neale",year: "2002-2004",link: "https://www.vtti.vt.edu/facilities/data-center.html",purpose: "normal driving",data: "RGB_S, RGB_D, ET",annotations: "nan",recording_conditions: "on-road: naturalistic",vehicle_control: "active",subjects: "241",frames: "-",videos: "-"},
+{type: "NDS/FOT",dataset: "RDCW FOT",reference: "2006_TechRep_LeBlanc",year: "2001-2005",link: "-",purpose: "normal driving",data: "RGB_S,RGB_D, ET",annotations: "nan",recording_conditions: "on-road: naturalistic",vehicle_control: "active",subjects: "89",frames: "-",videos: "-"},
+{type: "NDS/FOT",dataset: "SHRP2",reference: "2014_TechRep_Dingus",year: "2010-2013",link: "https://insight.shrp2nds.us/login/auth",purpose: "normal driving",data: "RGB_S,RGB_D, EV",annotations: "nan",recording_conditions: "on-road: naturalistic",vehicle_control: "active",subjects: "3092",frames: "-",videos: "-"},
+{type: "NDS/FOT",dataset: "IVBSS FOT",reference: "2011_TechRep_Sayer",year: "2009-1010",link: "https://www.its.dot.gov/research_archives/ivbss/",purpose: "normal driving",data: "RGB_S,RGB_D, EV",annotations: "nan",recording_conditions: "on-road: naturalistic",vehicle_control: "active",subjects: "108",frames: "-",videos: "-"},
+	];
+
+	var table = new Tabulator("#example-table", {
+		height:700, // set height of table to enable virtual DOM
+		data:tabledata, //load initial data into table
+		layout:"fitColumns", //fit columns to width of table (optional)
+		columns:[ //Define Table Columns
+			{title:"Type", field:"type", sorter:"string"},
+			{title:"Dataset", field:"dataset", sorter:"string"},
+			{title:"Reference", field:"reference", sorter:"string"},
+			{title:"Year", field:"year", sorter:"number"},
+			{title:"Link", field:"link", sorter:"string"},
+			{title:"Purpose", field:"purpose", sorter: "string"},
+			{title:"Data", field:"data", sorter: "string"},
+			{title:"Annotations", field:"annotations", sorter:"string"},
+			{title:"Recording<br>conditions", field:"recording_conditions", sorter:"string"},
+			{title:"# subjects", field:"subjects", sorter: "number"},
+			{title:"# frames", field:"frames", sorter: "string"},
+			{title:"# videos", field:"videos", sorter: "string"}
+		],
+	});
+</script>
+	</body>
+</html>

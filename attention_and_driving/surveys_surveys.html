@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link href="assets/css/tabulator/4.9/tabulator.min.css" rel="stylesheet">
+		<link href="assets/css/tables.css" rel="stylesheet">
+	</head>
+
+
+	<body>
+
+ <!-- Top navigation -->
+<div class="topnav">
+
+<a href="https://github.com/ykotseruba/attention_and_driving">Back to Github</a>
+<a href="behavioral_studies.html">Behavioral</a>
+<a href="practical_scene_gaze.html">Practical</a>
+<a href="datasets_datasets.html">Datasets</a>
+<a href="#" class="active">Surveys</a>
+
+
+</div> 
+
+<div class="topnav">
+
+
+
+</div> 
+
+		<div id="example-table"></div>
+						<script type="text/javascript" src="assets/js/tabulator/4.9/tabulator.min.js"></script>
+		<script type="text/javascript">
+	//sample data
+	var tabledata = [
+	{reference: "2021_BRM_Jansen",title: "Does agreement mean accuracy? Evaluating glance annotation in naturalistic driving data",venue: "Behavior Research Methods",year: "2021",topic: "annotation"},
+{reference: "2020_IJITSR_Doudou",title: "Driver Drowsiness Measurement Technologies: Current Research, Market Solutions, and Challenges",venue: "International Journal of Intelligent Transportation Systems Research",year: "2020",topic: "driver monitoring, drowsiness"},
+{reference: "2020_HumanFactors_Weaver",title: "A Systematic Review and Meta-Analysis of Takeover Performance During Conditionally Automated Driving",venue: "Human Factors",year: "2020",topic: "automation"},
+{reference: "2019_VisionResearch_Hooge",title: "Do pupil-based binocular video eye trackers reliably measure vergence?",venue: "Vision Research",year: "2019",topic: "eye trackers"},
+{reference: "2019_TR_OviedoTrespalacios",title: "The impact of road advertising signs on driver behaviour and implications for road safety: A critical systematic review",venue: "Transportaion Research Part A",year: "2019",topic: "environment, distraction"},
+{reference: "2019_T-ITS_Khatib",title: "Driver Inattention Detection in the Context of Next-Generation Autonomous Vehicles Design: A Survey",venue: "T-ITS",year: "2019",topic: "driver monitoring, drowsiness, distraction, automation"},
+{reference: "2019_SafetyScience_Wynne",title: "Systematic review of driving simulator validation studies",venue: "Safety Science",year: "2019",topic: "driving simulators"},
+{reference: "2019_JEMR_Ojstersek",title: "Eye tracking use in researching driver distraction: A scientometric and qualitative literature review approach",venue: "Journal of Eye Movement Research",year: "2019",topic: "distraction"},
+{reference: "2019_AccidentAnalysis_Robbins",title: "How does drivers’visual search change as a function of experience? Asystematic review and meta-analysis",venue: "Accident Analysis and Prevention",year: "2019",topic: "driving experience"},
+{reference: "2018_TIES_Parnell",title: "Where are we on driver distraction? Methods, approaches and recommendations",venue: "Theoretical Issues in Ergonomics Science",year: "2018",topic: "driver monitoring, distraction"},
+{reference: "2018_T-ITS_Sikander",title: "Driver Fatigue Detection Systems: A Review",venue: "T-ITS",year: "2018",topic: "driver monitoring, drowsiness"},
+{reference: "2018_PTB_Odegaard",title: "Inflation versus filling-in: why we feel we see more than we actually do in peripheral vision",venue: "Philosophical transactions of Royal Society B",year: "2018",topic: "peripheral vision"},
+{reference: "2018_HumanFactors_Caird",title: "Does Talking on a Cell Phone, With a Passenger, or Dialing Affect Driving Performance? An Updated Systematic Review and Meta-Analysis of Experimental Studies",venue: "Human Factors",year: "2018",topic: "distraction"},
+{reference: "2017_JoV_Loschky",title: "Scene perception from central to peripheral vision",venue: "Journal of Vision",year: "2017",topic: "peripheral vision"},
+{reference: "2017_ITS_Yin",title: "When to use what data set for your self-driving car algorithm: An overview of publicly available driving datasets",venue: "ITSC",year: "2017",topic: "datasets"},
+{reference: "2017_IET_Cunningham",title: "Driver distraction and inattention in the realm of automated driving",venue: "IET Intelligent Transport Systems",year: "2017",topic: "distraction, automation"},
+{reference: "2017_IEEEAccess_Kar",title: "A Review and Analysis of Eye-Gaze Estimation Systems, Algorithms and Performance Evaluation Methods in Consumer Platforms",venue: "IEEE Access",year: "2017",topic: "gaze estimation"},
+{reference: "2017_CGF_Blascheck",title: "Visualization of Eye Tracking Data: A Taxonomy and Survey",venue: "Computer Graphics Forum",year: "2017",topic: "gaze visualization"},
+{reference: "2017_AppliedErgonomics_Wolfe",title: "More than the Useful Field: Considering peripheral vision in driving",venue: "Applied Ergonomics",year: "2017",topic: "peripheral vision"},
+{reference: "2017_AppHumanFactors_Naujoks",title: "A review of non-driving-related tasks used in studies on automated driving",venue: "Advances in Human Aspects of Transportation",year: "2017",topic: "distraction"},
+{reference: "2016_VisionResearch_Poletti",title: "A compact field guide to the study of microsaccades: Challenges and functions",venue: "Vision Research",year: "2016",topic: "microsaccades"},
+{reference: "2016_TVT_Koesdwiady",title: "Recent Trends in Driver Safety Monitoring Systems: State of the Art and Challenges",venue: "Transactions on Vehicular Technology",year: "2016",topic: "driver monitoring, distraction, fatigue, drowsiness"},
+{reference: "2016_TR_OviedoTrespalacios",title: "Understanding the impacts of mobile phone distraction on driving performance: A systematic review",venue: "Transportation Research Part C",year: "2016",topic: "distraction"},
+{reference: "2016_TR_Lu",title: "Human factors of transitions in automated driving: A general framework and literature survey",venue: "Transportation Research Part F",year: "2016",topic: "automation"},
+{reference: "2016_TIV_Ohn-Bar",title: "Looking at Humans in the Age of Self-Driving and Highly Automated Vehicles",venue: "T-ITS",year: "2016",topic: "driver monitoring, distraction, driver awareness"},
+{reference: "2016_TheorIssErgonSci_Lenne",title: "Predicting drowsiness-related driving events: a review of recent research methods and future opportunities",venue: "Theoretical Issues in Ergonomics Science",year: "2016",topic: "drowsiness"},
+{reference: "2016_SJOVS_Thorslund",title: "Vision measurability and its impact on safe driving – a literature review",venue: "SJOVS",year: "2016",topic: "visual capabilities"},
+{reference: "2016_SigProcMag_Aghaei",title: "Smart Driver Monitoring: When Signal Processing Meets Human Factors",venue: "Signal Processing Magazine",year: "2016",topic: "driver monitoring, distraction, drowsiness"},
+{reference: "2016_JoV_Boucart",title: "Finding faces, animals, and vehicles in far peripheral vision",venue: "Journal of Vision",year: "2016",topic: "peripheral vision"},
+{reference: "2016_iPerception_Baldwin",title: "The perceived size and shape of objects in peripheral vision",venue: "I-Perception",year: "2016",topic: "peripheral vision"},
+{reference: "2016_HumanFactorsErgonomics_Funke",title: "Which eye tracker is right for your research? Performance evaluation of several cost variant eye trackers",venue: "Proceedings of Human Factors and Ergonomics Society",year: "2016",topic: "eye trackers"},
+{reference: "2016_AnnRevVisScience_Rosenholtz",title: "Capabilities and Limitations of Peripheral Vision",venue: "Annual Reviews of Vision Science",year: "2016",topic: "peripheral vision"},
+{reference: "2015_TrafficInjuryPrevention_Decker",title: "The Impact of Billboards on Driver Visual Behavior: A Systematic Literature Review",venue: "Traffic Injury Prevention",year: "2015",topic: "distraction"},
+{reference: "2015_TR_Victor",title: "Analysis of Naturalistic Driving Study Data: Safer Glances, Driver Inattention, and Crash Risk",venue: "TRID",year: "2015",topic: "distraction"},
+{reference: "2015_T-ITS_Kaplan",title: "Driver Behavior Analysis for Safe Driving: A Survey",venue: "T-ITS",year: "2015",topic: "drowsiness, distraction"},
+{reference: "2014_TransRes_Winter",title: "Effects of adaptive cruise control and highly automated driving on workload and situation awareness: A review of the empirical evidence",venue: "Transportation Research Part F",year: "2014",topic: "automation, distraction"},
+{reference: "2014_THMS_Ho",title: "To What Extent do the Findings of Laboratory-Based Spatial Attention Research Apply to the Real-World Setting of Driving?",venue: "IEEE Transactions on Human-Machine Systems",year: "2014",topic: "validation"},
+{reference: "2014_SMR_Dawson",title: "Look before you (s)leep: Evaluating the use of fatigue detection technologies within a fatigue risk management system for the road transport industry",venue: "Sleep Medicine Reviews",year: "2014",topic: "state: drowsiness"},
+{reference: "2014_MITS_Bengler",title: "Three Decades of Driver Assistance Systems",venue: "ITS Magazine",year: "2014",topic: "automation"},
+{reference: "2014_JoV_Lappi",title: "Future path and tangent point models in the visual control of locomotion in curve driving",venue: "Journal of Vision",year: "2014",topic: "visuomotor coordination"},
+{reference: "2014_CurrDrivAbuseRev_Shiferaw",title: "Drivers’ Visual Scanning Impairment Under the Influences of Alcohol and Distraction: A Literature Review",venue: "Current Drug Abuse Reviews",year: "2014",topic: "alcohol, distraction"},
+{reference: "2014_CB_Hayhoe",title: "Modeling Task Control of Eye Movements",venue: "Current Biology",year: "2014",topic: "task-based attention"},
+{reference: "2014_AJPH_Ferdinand",title: "Associations Between Driving Performance and Engaging in Secondary Tasks: A Systematic Review",venue: "American Journal of Public Health",year: "2014",topic: "distraction"},
+{reference: "2014_AAAM_Regan",title: "Towards an Understanding of Driver Inattention: Taxonomy and Theory",venue: "Annals of Advances in Automotive Medicine",year: "2014",topic: "intattention, taxonomy"},
+{reference: "2013_TRP_Gruber",title: "Vision and Night Driving Abilities of Elderly Drivers",venue: "Traffic Injury Prevention",year: "2013",topic: "age, visibility"},
+{reference: "2013_TR_Lee_1",title: "Distraction Detection Algorithm Evaluation",venue: "NHTSA",year: "2013",topic: "driver monitoring, distraction"},
+{reference: "2013_TR_Lee",title: "Distraction Detection and Mitigation Through Driver Feedback",venue: "Technical Report",year: "2013",topic: "driver monitoring, distraction"},
+{reference: "2013_ICCVW_Kang",title: "Various Approaches for Driver and Driving Behavior Monitoring: A Review",venue: "ICCVW",year: "2013",topic: "driver monitoring, distraction, drowsiness"},
+{reference: "2013_AccidentAnalysis_Taylor",title: "The view from the road: The contribution of on-road glance-monitoring technologies to understanding driver behavior",venue: "Accident Analysis and Prevention",year: "2013",topic: "driver monitoring, distraction"},
+{reference: "2012_VR_Traschulz",title: "Speed change detection in foveal and peripheral vision",venue: "Vision Research",year: "2012",topic: "peripheral vision"},
+{reference: "2012_SafetyScience_Young",title: "Examining the relationship between driver distraction and driving errors: A discussion of theory, studies and methods",venue: "Safety Science",year: "2012",topic: "distraction"},
+{reference: "2011_WIR_Jensen",title: "Change blindness and inattentional blindness",venue: "Wiley Interdisciplinary Reviews: Cognitive Science",year: "2011",topic: "awareness, distraction"},
+{reference: "2011_VAH_Tran",title: "Vision for Driver Assistance: Looking at People in a Vehicle",venue: "Visual Analysis of Humans",year: "2011",topic: "driver monitoring, distraction, drowsiness"},
+{reference: "2011_TransRes_Underwood",title: "Driving simulator validation with hazard perception",venue: "Transportation Research Part F",year: "2011",topic: "validation"},
+{reference: "2011_TIES_Salmon",title: "Situation awareness on the road: review, theoretical and methodological issues, and future directions",venue: "Theoretical Issues in Ergonomics Science",year: "2011",topic: "awareness"},
+{reference: "2011_T-ITS_Dong",title: "Driver Inattention Monitoring System for Intelligent Vehicles: A Review",venue: "T-ITS",year: "2011",topic: "driver monitoring, distraction, drowsiness"},
+{reference: "2011_JoV_Strasburger",title: "Peripheral vision and pattern recognition: A review",venue: "Journal of Vision",year: "2011",topic: "peripheral vision"},
+{reference: "2011_ITSC_Doshi",title: "Tactical Driver Behavior Prediction and Intent Inference: A Review",venue: "ITSC",year: "2011",topic: "driver monitoring, action prediction"},
+{reference: "2011_HandbookTrafficPsych_Crundall",title: "Visual Attention While Driving: Measures of Eye Movements Used in Driving Research",venue: "Handbook of Traffic Psychology",year: "2011",topic: "gaze measures"},
+{reference: "2011_AccidentAnalysis_Regan",title: "Driver distraction and driver inattention: Definition, relationship and taxonomy",venue: "Accident Analysis and Prevention",year: "2011",topic: "intattention, taxonomy"},
+{reference: "2010_VisionResearch_Owsley",title: "Vision and driving",venue: "Vision Research",year: "2010",topic: "visual capabilities"},
+{reference: "2010_TransApplPerc_Frintrop",title: "Computational Visual Attention Systems and Their Cognitive Foundations: A Survey",venue: "ACM Transactions on Applied Perception",year: "2010",topic: "visual attention mechanisms"},
+{reference: "2010_HumanFactors_Parasuraman",title: "Complacency and Bias in Human Use of Automation: An Attentional Integration",venue: "Human Factors",year: "2010",topic: "automation, trust"},
+{reference: "2010_Ergonomics_Collet1",title: "Phoning while driving I: a review of epidemiological, psychological, behavioural and physiological studies",venue: "Ergonomics",year: "2010",topic: "distraction"},
+{reference: "2010_Ergonomics_Collet",title: "Phoning while driving II: a review of driving conditions influence",venue: "Ergonomics",year: "2010",topic: "distraction"},
+{reference: "2010_CurrOpNeurobiology_Boudoost",title: "Top-down control of visual attention",venue: "Current Opinion in Neurobiology",year: "2010",topic: "task-based attention"},
+{reference: "2010_ActaPsych_Theeuwes",title: "Top–down and bottom–up control of visual selection",venue: "Acta Psychologica",year: "2010",topic: "visual attention mechanisms"},
+{reference: "2009_JoV_Hansen",title: "Color perception in the intermediate periphery of the visual field",venue: "Journal of Vision",year: "2009",topic: "peripheral vision"},
+{reference: "2009_DriverDistraction_Victor",title: "Distraction Assessment Methods Based on Visual Behavior and Event Detection",venue: "Driver Distraction: Theory, Effects, and Mitigation",year: "2009",topic: "distraction"},
+{reference: "2009_CurrentBiology_Levi",title: "Crowding in peripheral vision: why bigger is better",venue: "Current Biology",year: "2009",topic: "peripheral vision"},
+{reference: "2008_TR_Ranney",title: "Driver Distraction: A Review of the Current State-of-Knowledge",venue: "nan",year: "2008",topic: "distraction"},
+{reference: "2007_T-ITS_Trivedi",title: "Looking-In and Looking-Out of a Vehicle: Computer-Vision-Based Enhanced Vehicle Safety",venue: "T-ITS",year: "2007",topic: "driver monitoring"},
+{reference: "2007_DistractedDriving_Young",title: "Driver distraction: A review of the literature",venue: "Distracted driving",year: "2007",topic: "distraction"},
+{reference: "2007_AnnRevNeurosci_Knudsen",title: "Fundamental Components of Attention",venue: "Annual Review Neuroscience",year: "2007",topic: "visual attention mechanisms"},
+{reference: "2006_WCICA_Wang",title: "Driver Fatigue Detection: A Survey",venue: "World Congress on Intelligent Control",year: "2006",topic: "driver monitoring, drowsiness"},
+{reference: "2005_EBR_Brown",title: "Peripheral vision for perception and action",venue: "Experimental Brain Research",year: "2005",topic: "peripheral vision"},
+{reference: "2004_Horswill.doc",title: "Driver’s Hazard Perception Ability: Situation Awareness on the Road",venue: "Cognitive Approach to Situation Awareness",year: "2004",topic: "hazard perception"},
+{reference: "2002_Green",title: "Where do Drivers Look While Driving (and for How Long)?",venue: "Human Factors in Traffic Safety",year: "2002",topic: "gaze measures"},
+{reference: "2000_RAS_Bertozzi",title: "Vision-based intelligent vehicles: State of the art and perspectives",venue: "Robotics and Autonomous Systems",year: "2000",topic: "automation"},
+{reference: "1999_JSafRes_Deery",title: "Hazard and Risk Perception among Young Novice Drivers",venue: "Journal of Safety Research",year: "1999",topic: "driving experience, hazard perception"},
+{reference: "1998_Elsevier_Crundall",title: "How Much Do Novice Drivers See? The Effects of Demand on Visual Search Strategies in Novice and Experienced Drivers",venue: "Eye guidance in reading and scene perception",year: "1998",topic: "driving experience"},
+{reference: "1992_PsychBulletin_Christianson",title: "Emotional Stress and Eyewitness Memory: A Critical Review",venue: "Psychological Bulletin",year: "1992",topic: "emotion"},
+{reference: "1992_PP_Warren",title: "The role of central and peripheral vision in perceiving the direction of self-motion",venue: "Perception & Psychophysics",year: "1992",topic: "peripheral vision"},
+{reference: "1991_JOSA_Banks",title: "Peripheral spatial vision: limits imposed by optics, photoreceptors, and receptor pooling",venue: "Journal of Optical Society of America ",year: "1991",topic: "peripheral vision"},
+{reference: "1987_JOSA_Legge",title: "Contrast discrimination in peripheral vision",venue: "Journal of Optical Society of America ",year: "1987",topic: "peripheral vision"},
+{reference: "1986_VR_Johnston",title: "Matching velocity in central and peripheral vision",venue: "Vision Research",year: "1986",topic: "peripheral vision"},
+{reference: "1972_ARRB_Rockwell",title: "Eye movement analysis of visual information acquisition in driving: an overview",venue: "ARRB Proceedings",year: "1972",topic: "eye trackers"},
+	];
+
+	var table = new Tabulator("#example-table", {
+		height:700, // set height of table to enable virtual DOM
+		data:tabledata, //load initial data into table
+		layout:"fitColumns", //fit columns to width of table (optional)
+		columns:[ //Define Table Columns
+			{title:"Reference", field:"reference", sorter:"string"},
+			{title:"Title", field:"title", sorter:"string"},
+			{title:"Venue", field:"venue", sorter:"string"},
+			{title:"Year", field:"year", sorter:"number"},
+			{title:"Topic", field:"topic", sorter:"string"}
+		],
+	});
+</script>
+	</body>
+</html>

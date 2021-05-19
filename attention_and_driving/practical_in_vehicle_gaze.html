@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link href="assets/css/tabulator/4.9/tabulator.min.css" rel="stylesheet">
+		<link href="assets/css/tables.css" rel="stylesheet">
+	</head>
+
+
+	<body>
+
+  <!-- Top navigation -->
+<div class="topnav">
+
+<a href="https://github.com/ykotseruba/attention_and_driving">Back to Github</a>
+<a href="behavioral_studies.html">Behavioral</a>
+<a href="#" class="active">Practical</a>
+<a href="datasets_datasets.html">Datasets</a>
+<a href="surveys_surveys.html">Surveys</a>
+
+
+</div> 
+
+<div class="topnav">
+
+<a href="practical_scene_gaze.html">Scene gaze</a>
+<a href="#" class="active">In-vehicle gaze</a>
+<a href="practical_inattention_detection.html">Inattention detection</a>
+<a href="practical_driver_awareness.html">Driver awareness</a>
+<a href="practical_self_driving.html">Self-driving</a>
+<a href="practical_factors.html">Factors</a>
+
+
+</div> 
+
+		<div id="example-table"></div>
+						<script type="text/javascript" src="assets/js/tabulator/4.9/tabulator.min.js"></script>
+		<script type="text/javascript">
+	//sample data
+	var tabledata = [
+	{reference: "2018_TIV_Vora",title: "Driver Gaze Zone Estimation using Convolutional Neural Networks: A General Framework and Ablative Analysis",venue: "T-ITS",year: "2019",input: "RGB",observation: "1 frame",output: "AOI",aois: "6+EC",dataset: "custom: on-road, Columbia Gaze Dataset",metrics: "accuracy, confusion matrix"},
+{reference: "2018_ITSC_Jha",title: "Probabilistic Estimation of the Gaze Region of the Driver using Dense Classification",venue: "ITSC",year: "2018",input: "head pose",observation: "1 timestep",output: "saliency map",aois: "nan",dataset: "2018_IROS_Wang.pdf",metrics: "accuracy"},
+{reference: "2017_IV_Vora",title: "On Generalizing Driver Gaze Zone Estimation using Convolutional Neural Networks",venue: "IV",year: "2017",input: "RGB",observation: "1 frame",output: "AOI",aois: "6+EC",dataset: "custom: on-road",metrics: "accuracy"},
+{reference: "2016_T-ITS_Lundgren",title: "Driver-Gaze Zone Estimation Using Bayesian Filtering and Gaussian Processes",venue: "T-ITS",year: "2016",input: "head pose, gaze direction, eye closure",observation: "nan",output: "AOI",aois: "nan",dataset: "custom: on-road",metrics: "ROC curve, TP rate"},
+{reference: "2016_ITSC_Vasli",title: "On Driver Gaze Estimation: Explorations and Fusion of Geometric and Data Driven Approaches",venue: "ITSC",year: "2016",input: "RGB",observation: "1 frame",output: "AOI",aois: "6",dataset: "custom: on-road",metrics: "accuracy, confusion matrix"},
+{reference: "2016_IS_Fridman",title: "Driver Gaze Region Estimation without Use of Eye Movement",venue: "Pattern Recognition",year: "2016",input: "RGB",observation: "1 frame",output: "AOI",aois: "6",dataset: "custom: on-road",metrics: "accuracy"},
+{reference: "2016_IET_Fridman",title: "‘Owl’ and ‘Lizard’: patterns of head pose and eye pose in driver gaze classification",venue: "IET Computer Vision",year: "2016",input: "RGB",observation: "1 frame",output: "AOI",aois: "11",dataset: "custom: on-road",metrics: "accuracy"},
+{reference: "2016_BigComp_Choi",title: "Real-time categorization of driver’s gaze zone using the deep learning techniques",venue: "International Conference on Big Data and Smart Computing",year: "2016",input: "RGB",observation: "1 frame",output: "AOI",aois: "8+EC",dataset: "custom: on-road",metrics: "accuracy"},
+{reference: "2014_IV_Tawari",title: "Robust and Continuous Estimation of Driver Gaze Zone by Dynamic Analysis of Multiple Face Videos",venue: "IV",year: "2014",input: "RGB",observation: "6s",output: "AOI",aois: "8",dataset: "custom: on-road",metrics: "accuracy, confusion matrix"},
+{reference: "2014_ITSC_Tawari",title: "Where is the driver looking: Analysis of Head, Eye and Iris for Robust Gaze Zone Estimation",venue: "ITSC",year: "2014",input: "RGB",observation: "1 frame",output: "AOI",aois: "6",dataset: "custom: on-road",metrics: "accuracy, confusion matrix"},
+{reference: "2011_T-ITS_Lee",title: "Real-Time Gaze Estimator Based on Driver’s Head Orientation for Forward Collision Warning System",venue: "T-ITS",year: "2011",input: "RGB",observation: "1 frame",output: "AOI",aois: "18",dataset: "custom: on-road",metrics: "SCER, LCER"},
+{reference: "2015_T-ITS_Vicente",title: "Driver Gaze Tracking and Eyes Off the Road Detection System",venue: "T-ITS",year: "2015",input: "RGB",observation: "1 frame",output: "AOI",aois: "18",dataset: "custom: on-road",metrics: "accuracy, FP"},
+	];
+
+	var table = new Tabulator("#example-table", {
+		height:700, // set height of table to enable virtual DOM
+		data:tabledata, //load initial data into table
+		layout:"fitColumns", //fit columns to width of table (optional)
+		columns:[ //Define Table Columns
+			{title:"Reference", field:"reference", sorter:"string"},
+			{title:"Title", field:"title", sorter:"string"},
+			{title:"Venue", field:"venue", sorter:"string"},
+			{title:"Year", field:"year", sorter:"number"},
+			{title:"Input", field:"input", sorter: "string"},
+			{title:"Observation<br>length", field:"observation", sorter: "string"},
+			{title:"Output", field:"output", sorter:"string"},
+			{title:"# AOIs", field:"aois", sorter:"string"},
+			{title:"Dataset", field:"dataset", sorter:"string"},
+			{title:"Metrics", field:"metrics", sorter: "string"}
+		],
+	});
+</script>
+	</body>
+</html>

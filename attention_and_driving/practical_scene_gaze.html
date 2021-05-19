@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link href="assets/css/tabulator/4.9/tabulator.min.css" rel="stylesheet">
+		<link href="assets/css/tables.css" rel="stylesheet">
+	</head>
+
+
+	<body>
+
+ <!-- Top navigation -->
+<div class="topnav">
+
+<a href="https://github.com/ykotseruba/attention_and_driving">Back to Github</a>
+<a href="behavioral_studies.html">Behavioral</a>
+<a href="#" class="active">Practical</a>
+<a href="datasets_datasets.html">Datasets</a>
+<a href="surveys_surveys.html">Surveys</a>
+
+
+</div> 
+
+<div class="topnav">
+
+<a href="#" class="active">Scene gaze</a>
+<a href="practical_in_vehicle_gaze.html">In-vehicle gaze</a>
+<a href="practical_inattention_detection.html">Inattention detection</a>
+<a href="practical_driver_awareness.html">Driver awareness</a>
+<a href="practical_self_driving.html">Self-driving</a>
+<a href="practical_factors.html">Factors</a>
+
+
+</div> 
+
+		<div id="example-table"></div>
+						<script type="text/javascript" src="assets/js/tabulator/4.9/tabulator.min.js"></script>
+		<script type="text/javascript">
+	//sample data
+	var tabledata = [
+	{reference: "2020_T-ITS_Deng",title: "How Do Drivers Allocate Their Potential Attention? Driving Fixation Prediction via Convolutional Neural Networks",venue: "T-ITS",year: "2020",code: "nan",input: "RGB",observation: "1 frame",output: "saliency map",dataset: "Deng \etal 2020",metrics: "AUC, NSS, IG, CC, SIM, EMD, KLDiv",pipeline: "conv-deconv CNN"},
+{reference: "2019_WACV_Tavakoli",title: "Digging Deeper into Egocentric Gaze Prediction",venue: "WACV",year: "2019",code: "nan",input: "RGB, OF",observation: "1 frame",output: "saliency map",dataset: "USC Video Games",metrics: "AUC, NSS",pipeline: "GRU"},
+{reference: "2019_ITSC_Ning",title: "An Efficient Model for Driving Focus of Attention Prediction using Deep Learning",venue: "ITSC",year: "2019",code: "nan",input: "RGB, OF",observation: "1 frame",output: "saliency map",dataset: "DR(eye)VE",metrics: "CC, KLDiv, IG",pipeline: "CNN"},
+{reference: "2018_T-ITS_Deng",title: "Learning to Boost Bottom-Up Fixation Prediction in Driving Environments via Random Forest",venue: "T-ITS",year: "2018",code: "nan",input: "RGB",observation: "1 frame",output: "saliency map",dataset: "Deng \etal 2018",metrics: "AUC, ROC, NSS",pipeline: "RF"},
+{reference: "2018_PAMI_Palazzi",title: "Predicting the Driver’s Focus of Attention: the DR(eye)VE Project",venue: "PAMI",year: "2018",code: "nan",input: "RGB, OF, SM",observation: "16 frames",output: "saliency map",dataset: "DR(eye)VE",metrics: "CC, KLDiv, IG",pipeline: "multi-branch enc-dec C3D"},
+{reference: "2018_ITSC_Tawari",title: "Learning to Attend to Salient Targets in Driving Videos Using Fully Convolutional RNN",venue: "ITSC",year: "2018",code: "nan",input: "RGB",observation: "2 frames",output: "saliency map",dataset: "custom: on-road",metrics: "PR curve, CC, mAP",pipeline: "CNN+ConvLSTM"},
+{reference: "2018_ACCV_Xia",title: "Predicting Driver Attention in Critical Situations",venue: "ACCV",year: "2018",code: "nan",input: "RGB",observation: "6 frames",output: "saliency map",dataset: "BDD-A",metrics: "KLDiv, CC",pipeline: "CNN+ConvLSTM"},
+{reference: "2017_WACV_Palmer",title: "Predicting the Perceptual Demands of Urban Driving with Video Regression",venue: "WACV",year: "2017",code: "nan",input: "RGB",observation: "16 frames",output: "complexity score",dataset: "custom: on-road",metrics: "accuracy",pipeline: "C3D+regression"},
+{reference: "2017_PR_Ohn-Bar",title: "Are all objects equal? Deep spatio-temporal importance prediction in driving videos",venue: "Pattern Recognition",year: "2017",code: "nan",input: "RGB, BB, EV",observation: "2-3 s",output: "BB + importance score",dataset: "KITTI",metrics: "PR curve, mAP",pipeline: "regression"},
+{reference: "2017_IV_Tawari",title: "A Computational Framework for Driver’s Visual Attention Using A Fully Convolutional Architecture",venue: "IV",year: "2017",code: "nan",input: "RGB",observation: "1 frame",output: "saliency map",dataset: "DR(eye)VE",metrics: "CC",pipeline: "FCN"},
+{reference: "2017_IV_Palazzi",title: "Learning Where to Attend Like a Human Driver",venue: "IV",year: "2017",code: "https://github.com/francescosolera/dreyeving",input: "RGB",observation: "16 frames",output: "saliency map",dataset: "DR(eye)VE",metrics: "CC, KLDiv",pipeline: "multi-branch enc-dec C3D"},
+{reference: "2016_T-ITS_Deng",title: "Where Does the Driver Look? Top-Down-Based Saliency Detection in a Traffic Driving Environment",venue: "T-ITS",year: "2016",code: "https://github.com/taodeng/Top-down-based-traffic-driving-saliency-model",input: "RGB",observation: "1 frame",output: "saliency map",dataset: "custom: on-road",metrics: "AUC, ROC, NSS",pipeline: "heuristic"},
+{reference: "2014_TransSysManCybernetics_Borji",title: "What/Where to Look Next? Modeling Top-Down Visual Attention in Complex Interactive Environments",venue: "Transactions on Systems, Man, and Cybernetics Systems",year: "2014",code: "nan",input: "RGB",observation: "1 frame",output: "saliency map",dataset: "USC Video Games",metrics: "AUC, NSS",pipeline: "ML"},
+{reference: "2013_TR_Wortelen",title: "Dynamic simulation and prediction of drivers’ attention distribution",venue: "Transportation Research Part F",year: "2013",code: "nan",input: "SIM",observation: "10 s",output: "gaze AOI + duration",dataset: "custom: sim",metrics: "correlation, RMSE, qualitative",pipeline: "nan"},
+{reference: "2013_RSTB_Johnson",title: "Predicting human visuomotor behaviour in a driving task",venue: "Philosophical Transactions of the Royal Society: B",year: "2013",code: "https://github.com/EmbodiedCognition/driving-simulator",input: "SIM",observation: "1 timestep",output: "gaze AOI + duration",dataset: "custom: sim",metrics: "KLDiv, qualitative",pipeline: "nan"},
+{reference: "2012_CVPR_Borji",title: "Probabilistic Learning of Task-Specific Visual Attention",venue: "CVPR",year: "2012",code: "http://ilab.usc.edu/borji/Resources.html",input: "RGB, PG, EV",observation: "1 frame",output: "saliency map",dataset: "USC Video Games",metrics: "NSS, AUC",pipeline: "ML"},
+{reference: "2011_BMVC_Borji",title: "Computational Modeling of Top-down Visual Attention in Interactive Environments",venue: "BMVC",year: "2011",code: "nan",input: "RGB",observation: "1 frame",output: "saliency map",dataset: "USC Video Games",metrics: "NSS, AUC",pipeline: "ML"},
+{reference: "2016_arXiv_Bojarski_1",title: "VisualBackProp: visualizing CNNs for autonomous driving",venue: "arXiv",year: "2016",code: "nan",input: "RGB",observation: "1 frame",output: "saliency map",dataset: "custom: on-road",metrics: "qualitative",pipeline: "nan"},
+{reference: "2020_CVPR_Pal",title: "“Looking at the right stuff” - Guided semantic-gaze for autonomous driving",venue: "CVPR",year: "2020",code: "https://sites.google.com/eng.ucsd.edu/sage-net",input: "RGB",observation: "16 frames",output: "saliency map",dataset: "DR(eye)VE; BDD-A; JAAD",metrics: "KLDiv, CC for fixation-based, F-score, MAE for segmentation based",pipeline: "nan"},
+{reference: "2020_arXiv_Zhang",title: "Interaction Graphs for Object Importance Estimation in On-road Driving Videos",venue: "arXiv",year: "2020",code: "nan",input: "RGB",observation: "16 frames",output: "bbox + importance score",dataset: "2019_ICRA_Gao",metrics: "AP",pipeline: "nan"},
+{reference: "2019_IV_Rahimpour",title: "Context Aware Road-user Importance Estimation (iCARE)",venue: "IV",year: "2019",code: "nan",input: "RGB, EV",observation: "1 frame",output: "bbox + importance score, ego-vehicle path",dataset: "custom: on-road",metrics: "PR curve, F-score",pipeline: "nan"},
+{reference: "2019_ICRA_Gao",title: "Goal-oriented object importance estimation in on-road driving videos",venue: "ICRA",year: "2019",code: "nan",input: "RGB, EV",observation: "30 frames, path",output: "bbox + importance score",dataset: "custom: on-road",metrics: "AP, mAP",pipeline: "nan"},
+	];
+
+	var table = new Tabulator("#example-table", {
+		height:700, // set height of table to enable virtual DOM
+		data:tabledata, //load initial data into table
+		layout:"fitColumns", //fit columns to width of table (optional)
+		columns:[ //Define Table Columns
+			{title:"Reference", field:"reference", sorter:"string"},
+			{title:"Title", field:"title", sorter:"string"},
+			{title:"Venue", field:"venue", sorter:"string"},
+			{title:"Year", field:"year", sorter:"number"},
+			{title:"Code", field:"code", sorter:"string"},
+			{title:"Input", field:"input", sorter: "string"},
+			{title:"Observation<br>length", field:"observation", sorter: "string"},
+			{title:"Output", field:"output", sorter:"string"},
+			{title:"Dataset", field:"dataset", sorter:"string"},
+			{title:"Metrics", field:"metrics", sorter: "string"},
+			{title:"Pipeline", field:"pipeline", sorter:"number"}
+		],
+	});
+</script>
+	</body>
+</html>

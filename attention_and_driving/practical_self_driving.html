@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link href="assets/css/tabulator/4.9/tabulator.min.css" rel="stylesheet">
+		<link href="assets/css/tables.css" rel="stylesheet">
+	</head>
+
+
+	<body>
+
+ <!-- Top navigation -->
+<div class="topnav">
+
+<a href="https://github.com/ykotseruba/attention_and_driving">Back to Github</a>
+<a href="behavioral_studies.html">Behavioral</a>
+<a href="#" class="active">Practical</a>
+<a href="datasets_datasets.html">Datasets</a>
+<a href="surveys_surveys.html">Surveys</a>
+
+
+</div> 
+
+<div class="topnav">
+
+<a href="practical_scene_gaze.html">Scene gaze</a>
+<a href="practical_in_vehicle_gaze.html">In-vehicle gaze</a>
+<a href="practical_inattention_detection.html">Inattention detection</a>
+<a href="practical_driver_awareness.html">Driver awareness</a>
+<a href="#" class="active">Self-driving</a>
+<a href="practical_factors.html">Factors</a>
+
+
+</div> 
+
+		<div id="example-table"></div>
+						<script type="text/javascript" src="assets/js/tabulator/4.9/tabulator.min.js"></script>
+		<script type="text/javascript">
+	//sample data
+	var tabledata = [
+	{reference: "2020_CVPRW_Cultrera",title: "Explaining Autonomous Driving by Learning End-to-End Visual Attention",venue: "CVPRW",year: "2020",code: "nan",observation: "1 frame",input: "RGB from scene-facing camera",output: "steering angle",dataset: "Carla",metrics: "success rate, percentage of completed tasks"},
+{reference: "2019_ICRA_Wang",title: "Deep Object-Centric Policies for Autonomous Driving",venue: "ICRA",year: "2019",code: "nan",observation: "1 frame",input: "nan",output: "steering angle, speed",dataset: "BDD",metrics: "interventions, distance between interventions, number of collisions"},
+{reference: "2019_CVPR_Kim",title: "Grounding Human-to-Vehicle Advice for Self-driving Vehicles",venue: "CVPR",year: "2019",code: "nan",observation: "20s",input: "nan",output: "steering angle, speed",dataset: "HAD",metrics: "mean of correlation distances, MAE"},
+{reference: "2019_IROSW_Yuying",title: "Gaze Training by Modulated Dropout Improves Imitation Learning",venue: "IROSW",year: "2019",code: "nan",observation: "1 frame",input: "nan",output: "steering angle",dataset: "TORCS",metrics: "distance between infractions"},
+{reference: "2019_ACM_Liu",title: "A Gaze Model Improves Autonomous Driving",venue: "ACM Symposium on Eye Tracking Research and Applications",year: "2019",code: "nan",observation: "1 frame",input: "nan",output: "steering angle",dataset: "TORCS",metrics: "KLDiv, CC, MAE for steering angle"},
+{reference: "2018_ICPR_He",title: "Aggregated Sparse Attention for Steering Angle Prediction",venue: "ICPR",year: "2018",code: "nan",observation: "1 frame",input: "nan",output: "steering angle",dataset: "DIPLECS, Comma.ai",metrics: "MAE"},
+{reference: "2018_ECCV_Kim",title: "Textual Explanations for Self-Driving Vehicles",venue: "ECCV",year: "2018",code: "https://github.com/JinkyuKimUCB/explainable-deep-driving",observation: "4 frames (0.4s)",input: "nan",output: "steering angle, speed",dataset: "BDD-X",metrics: "MAE, CC"},
+{reference: "2017_ICCV_Kim",title: "Interpretable Learning for Self-Driving Cars by Visualizing Causal Attention",venue: "ICCV",year: "2017",code: "nan",observation: "20 frames (1s)",input: "nan",output: "steering angle",dataset: "Comma.ai, Udacity, custom: on-road",metrics: "MAE"},
+{reference: "2017_arXiv_Bojarski",title: "Explaining How a Deep Neural Network Trained with End-to-End Learning Steers a Car",venue: "arXiv",year: "2017",code: "nan",observation: "1 frame",input: "nan",output: "steering angle",dataset: "custom in-vehicle",metrics: "qualitative, inverse R"},
+	];
+
+	var table = new Tabulator("#example-table", {
+		height:700, // set height of table to enable virtual DOM
+		data:tabledata, //load initial data into table
+		layout:"fitColumns", //fit columns to width of table (optional)
+		columns:[ //Define Table Columns
+			{title:"Reference", field:"reference", sorter:"string"},
+			{title:"Title", field:"title", sorter:"string"},
+			{title:"Venue", field:"venue", sorter:"string"},
+			{title:"Year", field:"year", sorter:"number"},
+			{title:"Code", field:"code", sorter:"string"},
+			{title:"Observation<br>length", field:"observation", sorter: "string"},
+			{title:"Input", field:"input", sorter: "string"},
+			{title:"Output", field:"output", sorter:"string"},
+			{title:"Dataset", field:"dataset", sorter:"string"},
+			{title:"Metrics", field:"metrics", sorter: "string"},
+			{title:"Pipeline", field:"Pipeline", sorter:"number"}
+		],
+	});
+</script>
+	</body>
+</html>
