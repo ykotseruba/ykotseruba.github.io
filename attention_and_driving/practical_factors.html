@@ -38,9 +38,13 @@
 	//sample data
 	var tabledata = [
 	{reference: "2021_T-ITS_Fang",vehicle_control: "-",primary_driving_task: "hazard anticipation",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "-",environment: "-",automation: "-"},
-{reference: "2020_T-ITS_Deng",vehicle_control: "+",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "-",environment: "-",automation: "-"},
 {reference: "2020_T-ITS_Lee",vehicle_control: "-",primary_driving_task: "lane change",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "-",environment: "-",automation: "monitoring"},
+{reference: "2020_T-ITS_Deng",vehicle_control: "+",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "-",environment: "-",automation: "-"},
+{reference: "2020_ITSC_Dari",vehicle_control: "-",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "drowsiness",environment: "-",automation: "-"},
+{reference: "2020_IROS_Dua",vehicle_control: "-",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "-",environment: "lighting",automation: "-"},
 {reference: "2020_IEEEAccess_MartinezCebrian",vehicle_control: "-",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "-",environment: "road type, weather, visibility",automation: "-"},
+{reference: "2020_ICMI_Stappen",vehicle_control: "-",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "-",environment: "lighting",automation: "-"},
+{reference: "2020_HumanFactors_Jokinen",vehicle_control: "+",primary_driving_task: "-",secondary_non_driving_task: "IVIS: visual-manual",driving_experience: "-",demographics: "-",inattention: "distraction",environment: "-",automation: "-"},
 {reference: "2020_CVPRW_Cultrera",vehicle_control: "+",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "-",environment: "-",automation: "lateral control, explainability"},
 {reference: "2020_CVPR_Pal",vehicle_control: "+",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "-",environment: "-",automation: "-"},
 {reference: "2020_arXiv_Zhang",vehicle_control: "+",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "-",environment: "-",automation: "-"},
@@ -60,7 +64,7 @@
 {reference: "2019_CVPR_Kim",vehicle_control: "+",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "-",environment: "-",automation: "lateral control, warning/guidance"},
 {reference: "2019_BMVC_Palasek",vehicle_control: "+",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "-",environment: "traffic",automation: "-"},
 {reference: "2019_arXiv_Yuying",vehicle_control: "+",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "-",environment: "-",automation: "lateral control"},
-{reference: "2019_arXiv_Xia",vehicle_control: "+",primary_driving_task: "nan",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "-",environment: "-",automation: "longitudinal control"},
+{reference: "2019_arXiv_Xia",vehicle_control: "+",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "-",environment: "-",automation: "longitudinal control"},
 {reference: "2019_arXiv_Baee",vehicle_control: "+",primary_driving_task: "hazard anticipation",secondary_non_driving_task: "-",driving_experience: "duration",demographics: "-",inattention: "distraction",environment: "-",automation: "monitoring, warning/guidance"},
 {reference: "2019_ACM_Ma",vehicle_control: "-",primary_driving_task: "hazard anticipation",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "-",environment: "-",automation: "monitoring, warning/guidance"},
 {reference: "2019_ACM_Liu",vehicle_control: "+",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "-",environment: "-",automation: "lateral control"},
@@ -107,7 +111,7 @@
 {reference: "2016_BigComp_Choi",vehicle_control: "-",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "-",environment: "-",automation: "monitoring"},
 {reference: "2016_arXiv_Bojarski_1",vehicle_control: "+",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "-",environment: "-",automation: "lateral control, explainability"},
 {reference: "2016_ApplSci_Choi",vehicle_control: "-",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "drowsiness",environment: "-",automation: "monitoring"},
-{reference: "2016_AccidentAnalysis_Wang",vehicle_control: "+",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "drowsiness",environment: "nan",automation: "monitoring"},
+{reference: "2016_AccidentAnalysis_Wang",vehicle_control: "+",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "drowsiness",environment: "-",automation: "monitoring"},
 {reference: "2015_TranVehTech_Pugeault",vehicle_control: "+",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "-",environment: "-",automation: "lateral control, explainability"},
 {reference: "2015_T-ITS_Vicente",vehicle_control: "-",primary_driving_task: "-",secondary_non_driving_task: "-",driving_experience: "-",demographics: "-",inattention: "distraction",environment: "-",automation: "monitoring"},
 {reference: "2015_T-ITS_Liu",vehicle_control: "-",primary_driving_task: "vehicle following",secondary_non_driving_task: "cognitive tone task: cognitive",driving_experience: "-",demographics: "-",inattention: "distraction",environment: "-",automation: "monitoring"},
@@ -146,7 +150,7 @@
 		data:tabledata, //load initial data into table
 		layout:"fitColumns", //fit columns to width of table (optional)
 		columns:[ //Define Table Columns
-			{title:"Reference", field:"reference", sorter:"string"},
+			{title:"Reference", field:"reference", sorter:"string", formatter:"html"},
 			{title:"Primary<br>(driving)<br>task", field:"primary_driving_task", sorter:"string"},
 			{title:"Secondary<br>(non-driving)<br>task", field:"secondary_non_driving_task", sorter:"string"},
 			{title:"Driving<br>experience", field:"driving_experience", sorter:"string"},
