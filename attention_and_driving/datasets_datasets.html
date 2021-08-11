@@ -32,7 +32,7 @@
 	//sample data
 	var tabledata = [
 	{type: "Eye-tracking",dataset: "<a href=\"https://github.com/taodeng/CDNN-traffic-saliency\">Deng et al. 2020</a>",dataset_link: "https://github.com/taodeng/CDNN-traffic-saliency",bibtex: "<a href=\"all_bib.html#2020_T-ITS_Deng\">bib</a>",reference: "<a href=\"https://doi.org/10.1109/TITS.2019.2915540\">2020_T-ITS_Deng</a>",reference_link: "https://doi.org/10.1109/TITS.2019.2915540",venue: "T-ITS",year: "2020",description: "normal driving",data: "RGB_S, ET",annotations: "-",recording_conditions: "simulator: low",vehicle_control: "passive",subjects: "28",frames: "77K(estimated)",videos: "16"},
-{type: "Eye-tracking",dataset: "<a href=\"https://github.com/JWFangit/LOTVS-DADA\">DADA-2020</a>",dataset_link: "https://github.com/JWFangit/LOTVS-DADA",bibtex: "<a href=\"all_bib.html#2019_ITSC_Fang\">bib</a>",reference: "<a href=\"https://doi.org/10.1109/ITSC.2019.8917218\">2019_ITSC_Fang</a>",reference_link: "https://doi.org/10.1109/ITSC.2019.8917218",venue: "ITSC",year: "2019",description: "hazard perception",data: "RGB_S, ET",annotations: "BB, TL",recording_conditions: "simulator: low",vehicle_control: "passive",subjects: "20",frames: "658K",videos: "2000"},
+{type: "Eye-tracking",dataset: "<a href=\"https://github.com/JWFangit/LOTVS-DADA\">DADA-2000</a>",dataset_link: "https://github.com/JWFangit/LOTVS-DADA",bibtex: "<a href=\"all_bib.html#2019_ITSC_Fang\">bib</a>",reference: "<a href=\"https://doi.org/10.1109/ITSC.2019.8917218\">2019_ITSC_Fang</a>",reference_link: "https://doi.org/10.1109/ITSC.2019.8917218",venue: "ITSC",year: "2019",description: "hazard perception",data: "RGB_S, ET",annotations: "BB, TL",recording_conditions: "simulator: low",vehicle_control: "passive",subjects: "20",frames: "658K",videos: "2000"},
 {type: "Eye-tracking",dataset: "<a href=\"https://github.com/taodeng/traffic-eye-tracking-dataset\">Deng et al. 2018</a>",dataset_link: "https://github.com/taodeng/traffic-eye-tracking-dataset",bibtex: "<a href=\"all_bib.html#2018_T-ITS_Deng\">bib</a>",reference: "<a href=\"https://doi.org/10.1109/TITS.2017.2766216\">2018_T-ITS_Deng</a>",reference_link: "https://doi.org/10.1109/TITS.2017.2766216",venue: "T-ITS",year: "2018",description: "normal driving",data: "RGB_S*, ET",annotations: "-",recording_conditions: "simulator: low",vehicle_control: "passive",subjects: "20",frames: "100",videos: "-"},
 {type: "Eye-tracking",dataset: "<a href=\"http://imagelab.ing.unimore.it/dreyeve\">DR(eye)VE</a>",dataset_link: "http://imagelab.ing.unimore.it/dreyeve",bibtex: "<a href=\"all_bib.html#2018_PAMI_Palazzi\">bib</a>",reference: "<a href=\"https://doi.org/10.1109/TPAMI.2018.2845370\">2018_PAMI_Palazzi</a>",reference_link: "https://doi.org/10.1109/TPAMI.2018.2845370",venue: "PAMI, CVPRW",year: "2018",description: "normal driving",data: "RGB_S_ET, ET, PD, EV",annotations: "-",recording_conditions: "on-road: directed",vehicle_control: "active",subjects: "8",frames: "555K",videos: "74"},
 {type: "Eye-tracking",dataset: "<a href=\"https://bdd-data.berkeley.edu/\">BBD-A</a>",dataset_link: "https://bdd-data.berkeley.edu/",bibtex: "<a href=\"all_bib.html#2018_ACCV_Xia\">bib</a>",reference: "<a href=\"https://doi.org/10.1007/978-3-030-20873-8_42\">2018_ACCV_Xia</a>",reference_link: "https://doi.org/10.1007/978-3-030-20873-8_42",venue: "ACCV",year: "2018",description: "hazard perception",data: "RGB_S, ET",annotations: "-",recording_conditions: "simulator: low",vehicle_control: "passive",subjects: "45",frames: "378K (estimate)",videos: "1232"},
@@ -82,5 +82,18 @@
 		],
 	});
 </script>
+	<div>
+		<p>Abbreviations</p>
+		 <ul>
+		  <li>RGB_S, RGB_D - 3-channel image of scene/driver</li>
+		  <li>ET - eye-tracking data</li>
+		  <li>PD - pupil dilation</li>
+		  <li>EV - ego-vehicle information</li>
+		  <li>PS - physiological signals (e.g. heart rate, skin conductivity)</li>
+		  <li>TL - text labels</li>
+		  <li>BB - bounding boxes</li>
+		  <li>SM - semantic maps</li>
+		</ul> 
+	</div>
 	</body>
 </html>
