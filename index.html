@@ -1,127 +1,183 @@
-
 <!DOCTYPE html>
-<html lang="en"> 
+<html>
 <head>
-<meta charset="utf-8">
-<title>Iuliia Kotseruba
-</title>
-<meta name="description" content="{ description }">
-<link rel="canonical" href="https://ykotseruba.github.io/">
-<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<style>
-  body{font:300 1em cambria;padding:50px}
-  a:visited,a:link,a:hover{color:#000}
-  h3{font:300 1em cambria}
-  h2{font:300 1.2em cambria}
-  h1{font:300 2.2em cambria}
-  dd{margin-inline-start:0px;margin-bottom:15px}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Iuliia (Yulia) Kotseruba</title>
+    <style type="text/css">
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        margin: 40px
+        auto;
+        max-width: 650px;
+        line-height: 1.6;
+        font-size: 16px;
+        color: #444;
+        padding: 0
+        10px
+    }
 
-</style>
-</head> 
-<body>  
-<header> 
-<h1>Iuliia (Yulia) Kotseruba
-</h1> 
-<h2>Postdoctoral Visitor, York University
-</h2> 
+    .container {
+        display: flex;
+        align-items: flex-start;
+    }
+    .image {
+        margin-right: 15px;
+    }
 
-<p>
-<img src="avatar.jpg" alt="IK" height="150"> 
-</p>
+    .center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
 
-<p>
-I am a Postdoctoral Visitor at the <a href="http://jtl.lassonde.yorku.ca/">Lab for Active and Attentive Vision</a> at York University.<br>
+    .p14 {
+      font-size: 14px;
+    }
 
-I am interested in building AI systems inspired by knowledge about human vision and cognition for various applications, such as intelligent transportation, saliency prediction, and video game playing. My work focuses on applying domain knowledge, data analysis, and benchmarking to develop better models and identify open problems.
-</p> 
+    h1, h2, h3 {
+        line-height: 1.2;
+        text-align: center;
+    }
+    p {
+       text-align: justify;
+       margin-top: 0px;
+       margin-bottom: 5px;
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <p>
+        <img src="avatar6.jpg" alt="IK" height="150" style="display:block; margin-left:auto; margin-right:auto; border-radius:50%"> 
+        </p>
+        <h1>
+            Iuliia (Yulia) Kotseruba
+        </h1>
+        <h2>
+          Assistant Professor @ University of Guelph
+        </h2>
+         <hr>
+    <p style="text-align: center">
+     <a href="https://scholar.google.com/citations?user=a-UOikoAAAAJ&hl=en">Google Scholar</a> | 
+     <a href="https://www.researchgate.net/profile/Yulia_Kotseruba">ResearchGate</a> | 
+     <a href="https://github.com/ykotseruba">GitHub</a> | 
+     <a href="CV.pdf">CV</a>
+    </p>
+    </header>
+    <p>I am an Assistant Professor at University of Guelph. Prior to joining University of Guelph in 2025, I completed my Postdoc, PhD, and MSc in Computer Science and Electrical Engineering at York University and BSc in AI at University of Toronto.
+    <br>
+    <br>I am interested in building computer vision systems inspired by human vision and cognition for various applications, with focus on intelligent transportation, assistive driving systems, and autonomous driving. My main goal is to advance human-centered traffic safety by developing human-compliant models and identifying open problems through application of domain knowledge, extensive data analysis, and systematic benchmarking.
+    </p>
+
+    <h2>
+      Research
+    </h2>
+    <p>
+      My research revolves around several major topics (click on each item to expand):
+
+    <details>
+    <summary><strong>Pedestrian behavior understanding</strong></summary>
+    <p style="font-size: 14px;">Traffic accidents involving vulnerable road users (VRUs) remain a challenge, especially in urban environments. I have contributed to a number of projects to 1) collect and analyze how pedestrians cross the streets, 2) to better understnad what influences their decision-making, and 3) to apply it to developing better predictive models for autonomous and assistive driving systems. Below are some relevant links:</p>
+    <ul>
+      <li>
+      <p style="font-size: 14px;">Two large-scale datasets (<a href="https://github.com/ykotseruba/JAAD">JAAD</a> and <a href="https://github.com/aras62/PIE">PIE</a>) and <a href="https://github.com/ykotseruba/PedestrianActionBenchmark">a benchmark</a> for studying pedestrian crossing behavior.</p>
+      </li>
+      <li>
+      <p style="font-size: 14px;">A series of papers analyzing pedestrian crossing behavior and social interaction with drivers.</p>
+      </li>
+      <li>
+      <p style="font-size: 14px;">Models for predicting trajectory (<a href="https://github.com/aras62/PIEPredict">PIEtraj</a>) and crossing action (<a href="https://github.com/aras62/SF-GRU">SF-GRU</a>,<a href="https://github.com/ykotseruba/PedestrianActionBenchmark">PCPA</a>).</p>
+      </li>
+      <li>
+      <p style="font-size: 14px;">Cognitively-inspired simulation of pedestrian decision-making during crossing (<a href="https://ieeexplore.ieee.org/abstract/document/10186749">paper</a>.</p>
+      </li>
+    </ul>
+      </details>
+      <details>
+      <summary><strong>Driver attention (and human attention in general)</strong></summary>
+      <p style="font-size: 14px;">I am interested in how people observe their surroundings, why, where, and when do they look, whether in traffic or when no specific task is given to them (aka free-viewing). Below are some of the relevant projects and links:</p>
+      <ul>
+      <li>
+      <p style="font-size: 14px;">A curated <a href="https://github.com/ykotseruba/attention_and_driving">list of over 500 behavioral and practical papers (with code links)</a> on how drivers observe the traffic scene.</p>
+      </li>
+      <li>
+      <p style="font-size: 14px;">Top-down models of drivers' attention and extended annotations for three largest datasets with driving footage and eye-tracking data: DR(eye)VE, BDD-A, and LBW (<a href="https://github.com/ykotseruba/SCOUT">code and data</a>).</p>
+      </li>
+      <li>
+      <p style="font-size: 14px;">A benchmark for evaluating saliency algorithms on <a href="http://data.nvision2.eecs.yorku.ca/P3O3/">synthetic and natural images</a> with odd-one-out (singleton) objects. Showed that even very obvious salient targets are still missed by many saliency algorithms, both qualitatively and quantitatively, using a set of specialized <a href="https://github.com/ykotseruba/P3O3_metrics">metrics</a>.</p>
+      </li>
+      <li>
+      <p style="font-size: 14px;">A model for generating sequences of fixations for any image -- <a href="https://github.com/TsotsosLab/STAR-FC">STAR-FC</a>(C++) and <a href="https://github.com/ykotseruba/pySTAR-FC">pySTAR-FC</a> (Python).</p>
+      </li>
+      </ul>
+    </details>
+    <details>
+    <summary><strong>Cognitive architectures</strong></summary>
+    <p style="font-size: 14px;">Cognitive architectures aim to explain human cognition by building software systems that mimic human behavior and biology. To inform my own work, I surveyed and analyzed <em>over 3000 publications</em> on <em>80+ congnitive architectures</em> created in the last 40 years.</p>
+
+    <p style="font-size: 14px;">The findings were first presented in a survey of <a href="https://link.springer.com/article/10.1007/S10462-018-9646-Y"><em>40 Years of Cognitive Architectures</em></a>. More recently, this work was extended to cover theory and practical issues in our new book on <a href="https://global.oup.com/academic/product/the-computational-evolution-of-cognitive-architectures-9780192844835?cc=ca&lang=en"><em>The Computational Evolution of Cognitive Architectures</em></a>. Both are comprehensive sources that are meant as a reference for anyone interested in human-inspired AI.</p>
+    </details>
+    </ul>
+    </p>
+
+    <h2>
+      Publications
+    </h2>
+
+    <div class="container">
+        <img src="the-computational-evolution-of-cognitive-architectures.jpg" alt="Book cover" class="image" width="250">
+        <p style="font-size: 13px;">The book on <strong>The Computational Evolution of Cognitive Architectures</strong> traces the evolution of cognitive architectures, their abilities, and future prospects, from their logic-based beginnings in 1950s to recent melding of classic methodologies with deep learning concepts. We analyzed <strong>3000 publications</strong> on more than <strong>80 cognitive architectures</strong> and hundreds more surveys, research papers, and opinion pieces spanning philosophy, cognitive science, computer science, and robotics, and aggregated findings into broad themes, such as common components of the architectures, their organization, interaction, and relation to human cognitive abilities. The book discusses both <em>theoretical</em> elements of cognitive architectures and their <em>performance</em> before finally considering the future of cognitive architectures and their challenges.
+        <br>Available for pre-order from: <a style="font-size: 16px;" href="https://global.oup.com/academic/product/the-computational-evolution-of-cognitive-architectures-9780192844835?cc=ca&lang=en&">Oxford University Press</a> | <a style="font-size: 16px;" href="https://www.amazon.ca/Computational-Evolution-Cognitive-Architectures/dp/0192844830/ref=sr_1_1?crid=20NS1NV8OZ83D&dib=eyJ2IjoiMSJ9.lz_JSc06lsvFBDEJtUsKq3CDtBIQOjeJQdi0r6jcn3cmuvQWKLUnghBydLrVbLhR.P1U4PZ5atSUlwaCQTX6hTjE1iOFewNd0M66cA-bJYBE&dib_tag=se&keywords=the+evolution+of+cognitive+architectures&qid=1752174759&sprefix=the+evolution+of+cognitive+architectures%2Caps%2C81&sr=8-1">Amazon.CA</a> | <a style="font-size: 16px;" href="https://bookshop.org/p/books/the-computational-evolution-of-cognitive-architectures-iuliia-kotseruba/22511344?ean=9780192844835&next=t&next=t">GoodGoodGood</a> | <a style="font-size: 16px;" href="https://www.indigo.ca/en-ca/the-computational-evolution-of-cognitive-architectures/c185aa25-f100-3af2-b0c4-3150521f90aa.html">Indigo</a> | <a style="font-size: 16px;" href="https://www.kobo.com/ca/en/ebook/the-computational-evolution-of-cognitive-architectures">Kobo</a>
+        </p>   
+    </div>
 
 
+    <p>See my <a href="https://scholar.google.com/citations?user=a-UOikoAAAAJ&hl=en">Google Scholar Profile</a> for the up-to-date list of publications.</p>
 
-<div class="wrapper"> 
-<div> 
-<h2>Links
-</h2> 
+    <h2>
+      Teaching
+    </h2>
+    <ul>
+        <li>
+          Fall 2025: CIS*3260 System Design IV
+        </li>
+        <li>
+          Winter 2026: CIS*3110 Operating Systems
+        </li>
+    </ul>    
 
-<ul> 
+    <h2>
+      Joining the lab
+    </h2>
+    <h3> What do I look for in applicants </h3>
+    <p>A solid background in computer vision, exposure to HCI and cognitive science, good programming skills in Python, and familiarity with machine learning frameworks (Torch, Tensorflow) will set your application apart. But even more importantly, I expect to see a <em>genuine desire to explore new problems, ability to learn from constructive feedback, and motivation to publish</em>.</p>
 
-  <li>
-  <a href="https://scholar.google.com/citations?user=a-UOikoAAAAJ&hl=en">Google Scholar Profile</a>
-  </li>
+    <h3> How to apply </h3>
+    <p>If you are interested in my research topics and would like to contribute, there are several pathways for becoming a member of my lab (click on the items below to expand):</p>  
+    <details>
+    <summary><strong>As a graduate student</strong> | <strong>2 MSc positions open</strong></summary>
+      <ul>
+        <p><strong>Apply</strong> on the <a href="https://graduatestudies.uoguelph.ca/future/applying-guelph">UoGuelph webpage</a> and indicate my name as a potential supervisor in your application.</p>
+        <p><strong> <a href="mailto:kotseruba@uoguelph.ca">Email me</a></strong> with your research interests (1 short paragraph), research experience (1 short paragraph), why you want to join my lab (1 paragraph), CV/resume, and unofficial transcripts.</p>
+        <p><strong>Funding information</strong>. Full-time graduate students are guaranteed the following minimum funding per year: X CAD for MSc students and X CAD for PhD students. Portion of this funding is a teaching assistant salary. Graduate students also pay tuition, which amounts to approx. 9,000 CAD per year (note that this is for domestic students, see more detailed information <a href="https://www.uoguelph.ca/registrar/finances-fees/tuition-fees/guelph-grad/?fees/guelph_gr=">here</a>.).</p>
+        <p><strong>Scholarships.</strong> There are a number of graduate scholarships available from provincial and federal government, as well as from the private sector. Many of these are for domestic students, but opportunities also exist for international students. I will work with students to apply for these additional funding sources.
+        <p><strong>Important dates for scholarships.</strong> I <em>strongly</em> recommend planning your grad school application <em>early</em> to have an opportunity to receive additional funding.<br><em>December 1st:</em> NSERC CGS-M MSc scholarship deadline. Students can apply in the year before starting (if they reach out to me in time).<br><em>Mid-october:</em> NSERC PGS-D and CSG-D scholarships for PhD students. The internal dealine at UoGuelph is a few weeks earlier. Students can apply either in the year before starting or after starting since PhD takes longer.</p>
+      </ul>
+    </details>
+    <details>
+    <summary><strong>As an undergraduate student</strong> | <strong>2 course positions open</strong></summary>
+    <p>There are several opportunities to do research as an undergraduate. Having such experience will be especially beneficial to students who are thinking about applying to grad school.</p>
+    <ul>
+    <li><a href="https://www.uoguelph.ca/registrar/finances-fees/ug-summer-research/">NSERC Undergraduate Research Awards (USRA), Undergraduate Research Assistanships (URA), and International Student Undergraduate Research Assistantship (ISURA)</a>. Students will get an opportunity to engage in ongoing reserch in the lab or pursue an individual research project, both with potential for publication.<br>These programs provide <strong>paid full-time summer research positions</strong> for domestic and international students. Openings are advertised on <a href="https://experienceguelph.ca/home.htm">Experience Guelph</a> in January. Applicants are interviewed and hired in February, and those hired are expected to work full-time from May to September.</li>
+    <li>One- or two-semester research project for course credit (CIS*4900, CIS*4910). The students will get experience with all stages of research, including writing a research proposal, conducting a literature review, designing an experiment, analyzing data, and presenting their findings in a publication-quality report.</li>
+    </ul>
+    </details>
+    <!-- <details> -->
+    <!-- <summary><strong>As a postdoc</strong></summary> -->
+    <!-- <p>I currently do not have openings for postdocs. However, please reach out to me if you already have funding or are eligible for <a href="https://www.nserc-crsng.gc.ca/students-etudiants/pd-np/pdf-bp_eng.asp">NSERC Postdoctoral Scholarship</a>, <a href="https://banting.fellowships-bourses.gc.ca/en/app-dem_overview-apercu.html">Banting Fellowship</a>, and other similar funding opportunities. If you are interested in my research, please email me with your CV, project ideas, and available funding or funding you are planning to apply for.</p> -->
+    </details>
 
-  <li>
-  <a href="https://www.researchgate.net/profile/Yulia_Kotseruba">ResearchGate Profile</a>
-  </li>
-
-  <li>
-  <a href="https://github.com/ykotseruba">GitHub</a>
-  </li>
-
-  <li>
-  <a href="CV.pdf">CV</a>
-  </li>
-
-  <li>
-  <a href="mailto:yulia84@yorku.ca">Email</a>
-  </li>
-</ul>
-</div> 
-
-
-<div class="wrapper"> 
-  <div> 
-  <h2>Projects</h2> 
-    <ul> 
-    <li>
-    Attention and Driving
-    <dt>
-      <dd>A curated <a href="https://github.com/ykotseruba/attention_and_driving">list of papers (with code links)</a> on how drivers observe the traffic scene<br>
-      Top-down models of drivers' attention and extended annotations for DR(eye)VE, BDD-A, and LBW (<a href="https://github.com/ykotseruba/SCOUT">code and data</a>)
-    </dt>
-    </li> 
-    <li>
-    <a href="http://jtl.lassonde.yorku.ca/project/cognitive_architectures_survey/index.html">Cognitive Architectures
-    </a>
-    <dt>
-      <dd>A survey of 84 cognitive architectures developed in the past 40 years</dd>
-    </dt>
-    </li> 
-    <li> 
-    Pedestrian Behavior Understanding
-    <dt>
-      <dd>Two datasets (<a href="https://github.com/ykotseruba/JAAD">JAAD</a> and <a href="https://github.com/aras62/PIE">PIE</a>) for studying pedestrian crossing behavior<br>
-      Models for predicting trajectory (<a href="https://github.com/aras62/PIEPredict">PIEtraj</a>) and crossing action (<a href="https://github.com/aras62/SF-GRU">SF-GRU</a>,<a href="https://github.com/ykotseruba/PedestrianActionBenchmark">PCPA</a>)</dd>
-    </dt>
-    </li> 
-    <li> 
-    Odd-One-Out Benchmark
-    <dt>
-      <dd>A collection of <a href="http://data.nvision2.eecs.yorku.ca/P3O3/">synthetic and natural images</a> with odd-one-out (singleton) objects and <a href="https://github.com/ykotseruba/P3O3_metrics">metrics</a> for evaluating saliency algorithms</dd>
-    </dt>
-    </a>
-    </li>
-    <li> 
-    <a href="https://github.com/TsotsosLab/STAR-FC">Saccade Generator for Static Images</a>
-    <dt>
-      <dd>A model for generating sequences of fixations for any image -- <a href="https://github.com/TsotsosLab/STAR-FC">STAR-FC</a>(C++) and <a href="https://github.com/ykotseruba/pySTAR-FC">pySTAR-FC</a> (Python)</dd>
-    </dt>
-    </a>
-    </li>  
-  </ul>
-  </div> 
-</div> 
- 
-</header> 
-<main> 
-<h2>Publications
-</h2> 
-<dd>See my <a href="https://scholar.google.com/citations?user=a-UOikoAAAAJ&hl=en">Google Scholar Profile</a> for a full list of publications</dd>
-
-<br>
-
-<p style="text-align: right;">
-Webpage template modified from <a href="https://glynnbird.com/">here</a>
-</p>
-</main>  
+    <!-- <p><strong>Interview.</strong> I will reach out to some applicants to set up an interview (in-person or virtual). The interview will have three parts: 1) an informal introduction, 2) a 10-15 minute presentation of your own work/project or a relevant recent paper from a top vision/ML conference to demonstrate presentation and analytical skills, and 3) a Python coding test to assess programming skills.</p> -->
 </body>
 </html>
